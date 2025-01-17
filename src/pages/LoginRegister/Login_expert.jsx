@@ -69,7 +69,7 @@ function LoginExpert() {
 
         {/* Image and Quote Section */}
         <div className="w-1/2 flex flex-col justify-center items-center bg-gray-100">
-          <img src={require('../../images/loginpage_abovequote.png')} alt="Login" className="w-3/4" />
+          <img src={require('../../images/loginpage_abovequote.png')} alt="Login" className="w-1/2" />
           <div className="text-center mt-6">
             <p className="ml-5 mr-5 text-2xl font-serif">"Understanding the human form is the first step in shaping a better future."</p>
             <p className="text-lg font-serif mt-2 ml-10">— Dr. Jane Thompson, Anthropologist</p>
