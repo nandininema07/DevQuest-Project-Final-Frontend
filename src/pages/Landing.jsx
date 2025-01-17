@@ -36,19 +36,19 @@ function HomePage() {
         <div className="flex space-x-4">
         <Link
             to="/"
-            className="font-istok-web font-bold text-lg px-4 py-2 rounded transition-all hover:bg-blue-700 hover:text-white"
+            className="font-istok-web font-bold text-lg px-4 py-2 rounded transition-all hover:bg-[#B5C18E] hover:text-white"
         >
             Home
         </Link>
         <Link
-            to="/Login"
-            className="font-istok-web font-bold text-lg px-4 py-2 rounded transition-all hover:bg-blue-700 hover:text-white"
+            to="/login_user"
+            className="font-istok-web font-bold text-lg px-4 py-2 rounded transition-all hover:bg-[#B5C18E] hover:text-white"
         >
             Login
         </Link>
         <Link
-            to="/register"
-            className="font-istok-web font-bold text-lg px-4 py-2 rounded transition-all hover:bg-blue-700 hover:text-white"
+            to="/register_user"
+            className="font-istok-web font-bold text-lg px-4 py-2 rounded transition-all hover:bg-[#B5C18E] hover:text-white"
         >
             Register
         </Link>
@@ -110,7 +110,7 @@ function HomePage() {
             ].map((card, index) => (
               <div
                 key={index}
-                className="w-80 p-6 bg-white shadow-lg rounded-lg transform transition-transform hover:scale-105 hover:bg-blue-500 hover:text-white"
+                className="w-80 p-6 bg-white shadow-lg rounded-lg transform transition-transform hover:scale-105 hover:bg-[#B5C18E] hover:text-white"
               >
                 <h3 className="text-xl font-bold mb-4">{card.title}</h3>
                 <p className="text-md">{card.description}</p>
@@ -203,13 +203,13 @@ function HomePage() {
   </a>
 </div>
 
-        <div className='flex text-right text-sm text-gray-400 mr-4 hover:text-blue-500'>
+        <div className='flex text-right text-sm text-gray-400 mr-4 hover:text-[#B5C18E]'>
         <Link to='/privacypolicy'>Privacy Policy</Link>
       </div>
-      <div className='flex text-right text-sm text-gray-400 mr-4 hover:text-blue-500'>
+      <div className='flex text-right text-sm text-gray-400 mr-4 hover:text-[#B5C18E]'>
         <Link to='/cookiepolicy'>Cookie Policy</Link>
       </div>
-      <div className='flex text-right text-sm text-gray-400 mr-4 hover:text-blue-500'>
+      <div className='flex text-right text-sm text-gray-400 mr-4 hover:text-[#B5C18E]'>
         <Link to='/terms_of_use'>Terms of Use</Link>
       </div>
       </div>
@@ -219,17 +219,17 @@ function HomePage() {
         <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
         <ul className="space-y-2">
           <li>
-            <Link to="/" className="text-gray-300 hover:text-blue-500">
+            <Link to="/" className="text-gray-300 hover:text-[#B5C18E]">
               Home
             </Link>
           </li>
           <li>
-            <Link to="/contact_us" className="text-gray-300 hover:text-blue-500">
+            <Link to="/contact_us" className="text-gray-300 hover:text-[#B5C18E]">
               Contact Us
             </Link>
           </li>
           <li>
-            <Link to="/login" className="text-gray-300 hover:text-blue-500">
+            <Link to="/login_user" className="text-gray-300 hover:text-[#B5C18E]">
               Login
             </Link>
           </li>

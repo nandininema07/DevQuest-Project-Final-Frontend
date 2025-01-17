@@ -55,8 +55,8 @@ function ForgotPassword() {
         {/* Logo and Website Name */}
         <button onClick={() => navigate('/')}>
           <div className="absolute top-4 left-8 flex items-center">
-            <img src={require('../../images/LOGO_FINAL.png')} alt="Logo" className="w-12 h-12 mr-3" />
-            <span className="text-black text-xl font-istok-web font-bold">ANTHROPOSYNC</span>
+            <img src={require('../../images/LOGO_FINAL.png')} alt="Logo" className="w-10 h-10 mr-3" />
+            <span className="text-black text-3xl font-ananda_namaste">AROGYAM</span>
           </div>
         </button>
 

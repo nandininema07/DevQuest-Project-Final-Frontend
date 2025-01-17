@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 import { getAuthToken } from '../..';
 import { backendurl } from '../../urls';
 
-function Register() {
+function RegisterExpert() {
   const navigate = useNavigate();
   const token = getAuthToken();
   const tokenJson = JSON.parse(token);
@@ -73,8 +73,8 @@ function Register() {
       <div className="flex w-full h-screen bg-white">
         <button onClick={() => navigate('/')}>
           <div className="absolute top-4 left-8 flex items-center">
-            <img src={require('../../images/LOGO_FINAL.png')} alt="Logo" className="w-12 h-12 mr-3" />
-            <span className="text-black text-xl font-istok-web font-bold">ANTHROPOSYNC</span>
+            <img src={require('../../images/LOGO_FINAL.png')} alt="Logo" className="w-10 h-10 mr-3" />
+            <span className="text-black text-3xl font-ananda_namaste">AROGYAM</span>
           </div>
         </button>
         <div className="w-1/2 flex flex-col justify-center items-center bg-gray-100">
@@ -93,9 +93,12 @@ function Register() {
           </button>
           <div className="w-4/5 bg-white shadow-xl p-8 rounded-lg">
             <h2 className="text-4xl font-bold text-600 mb-4 font-istok-web-bold text-left">
-              <span className="text-[#0051AB]">Create</span> an Account
+              <span className="text-[#B5C18E]">Create</span> an Account
             </h2>
-            <p className="text-lg text-gray-600 mb-6 font-istok text-left font-medium">Please sign up to continue.</p>
+            <div className='mb-3'>
+              <button onClick={() => navigate('/register_user')} className='border rounded-lg py-2 px-4 mr-5 border-[#B5C18E] text-[#B5C18E]'>Register as a User</button>
+              <button onClick={() => navigate('/register_expert')} className='border rounded-lg py-2 px-4 bg-[#B5C18E]'>Register as an Expert</button>
+            </div>
             <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
               <div className="grid grid-cols-2 gap-4 w-full">
                 <div className="text-left">
@@ -103,7 +106,7 @@ function Register() {
                   <input 
                     type="text" 
                     placeholder="Enter your full name"
-                    className="w-full p-3 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    className="w-full p-3 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B5C18E]"
                     value={fullname}
                     onChange={(e) => setFullname(e.target.value)}
                   />
@@ -114,7 +117,7 @@ function Register() {
                   <input 
                     type="text" 
                     placeholder="Enter your username"
-                    className="w-full p-3 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    className="w-full p-3 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B5C18E]"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                   />
@@ -128,7 +131,7 @@ function Register() {
                   <input 
                     type="email" 
                     placeholder="Enter your email"
-                    className="w-full p-3 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    className="w-full p-3 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B5C18E]"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
@@ -139,7 +142,7 @@ function Register() {
                   <input 
                     type="text" 
                     placeholder="Enter your phone number"
-                    className="w-full p-3 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    className="w-full p-3 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B5C18E]"
                     value={mobile}
                     onChange={(e) => setMobile(e.target.value)}
                   />
@@ -154,7 +157,7 @@ function Register() {
                     <input 
                       type={showPassword ? "text" : "password"} 
                       placeholder="Enter your password"
-                      className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                      className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B5C18E]"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                     />
@@ -170,7 +173,7 @@ function Register() {
                     <input 
                       type={showConfirmPassword ? "text" : "password"} 
                       placeholder="Confirm your password"
-                      className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                      className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B5C18E]"
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
                     />
@@ -182,10 +185,10 @@ function Register() {
                 </div>
               </div>
 
-              <button type="submit" className="bg-[#0051AB] text-white py-3 rounded-lg hover:bg-blue-900 font-istok">SIGN UP</button>
+              <button type="submit" className="bg-[#B5C18E] text-white py-3 rounded-lg hover:bg-[#93A851] font-istok">SIGN UP</button>
             </form>
             <div className="text-center mt-3">
-              <p className="text-lg font-istok">Already have an account? <span onClick={() => navigate('/login')} className="text-[#0051AB] cursor-pointer">LOGIN</span></p>
+              <p className="text-lg font-istok">Already have an account? <span onClick={() => navigate('/login_expert')} className="text-[#B5C18E] cursor-pointer">LOGIN</span></p>
             </div>
           </div>
         </div>
@@ -194,4 +197,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default RegisterExpert;
