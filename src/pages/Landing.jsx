@@ -29,9 +29,9 @@ function HomePage() {
         <img
         src={require('../images/LOGO_FINAL.png')}
         alt="Logo"
-        className="w-12 h-12 mr-3"
-        />
-        <span className="text-xl font-istok-web font-bold">ANTHROPOSYNC</span>
+        className="w-10 h-10 mr-3"
+        />  
+        <span className="text-3xl font-ananda_namaste ">AROGYAM</span>
         </Link>
         <div className="flex space-x-4">
         <Link
@@ -161,7 +161,7 @@ function HomePage() {
         alt="Logo"
         className="w-12 h-12 mr-3"
         />
-        <span className="text-2xl font-istok-web font-bold">ANTHROPOSYNC</span>
+        <span className="text-4xl font-ananda_namaste">AROGYAM</span>
         </Link>
 
         {/* Social Media Icons */}

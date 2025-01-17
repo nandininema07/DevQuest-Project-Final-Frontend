@@ -17,6 +17,7 @@ module.exports = {
       },
       fontFamily: {
         'montserrat': ['Montserrat'],
+        'ananda_namaste': ['ananda_namaste', 'sans-serif'],
       },
       height:{
         '95vh':'89.5vh'
