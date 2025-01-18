@@ -33,7 +33,7 @@ function LoginUser() {
         axios.post('http://localhost:3001/login_user',{username, password})
         .then(result => {console.log(result)
             if(result.data === "Success"){
-                navigate('/dashboard')
+                navigate('/patient-profile')
             }
         })
         .catch(err => console.log(err))

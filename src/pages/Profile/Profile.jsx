@@ -180,7 +180,7 @@ function Profile() {
                         </Link>
 
                         <button
-                            onClick={() => navigate(`/measurements/${patientDetails?.id}`)}
+                            onClick={() => navigate("/MsrmtTbl")}
                             className="w-2/9 sm:w-full hover:bg-blue-700 relative inline-flex mt-6 mr-5 items-center justify-center px-10 py-2 overflow-hidden font-medium tracking-tighter text-white bg-black rounded-lg"
                         >
                             <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-navbg rounded-full group-hover:w-56 group-hover:h-56"></span>
