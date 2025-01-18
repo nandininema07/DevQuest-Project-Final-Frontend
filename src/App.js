@@ -24,8 +24,10 @@ import ContactUs from './pages/Policies_Terms_Contact/contact_us';
 
 import VideoRecord from './components/video/VideoRecord';
 import GiveTest from './components/video/GiveTest'
-import ForgotPassword from './pages/LoginRegister/ForgotPassword';
-import ResetPassword from './pages/LoginRegister/ResetPassword';
+import ForgotPasswordUser from './pages/LoginRegister/ForgotPassword_user';
+import ForgotPasswordExpert from './pages/LoginRegister/ForgotPassword_expert';
+import ResetPasswordUser from './pages/LoginRegister/ResetPassword_user';
+import ResetPasswordExpert from './pages/LoginRegister/ResetPassword_expert';
 
 
 
@@ -47,8 +49,10 @@ function App() {
           <Route exact path="/login_expert" element={<LoginExpert/>} />
           <Route exact path="/register_user" element={<RegisterUser/>} />
           <Route exact path="/register_expert" element={<RegisterExpert/>} />
-          <Route exact path="/forgot-password" element={<ForgotPassword/>} />
-          <Route exact path="/reset-password/:email" element={<ResetPassword/>} />
+          <Route exact path="/forgot-password-user" element={<ForgotPasswordUser/>} />
+          <Route exact path="/forgot-password-expert" element={<ForgotPasswordExpert/>} />
+          <Route exact path="/reset-password-user/:email" element={<ResetPasswordUser/>} />
+          <Route exact path="/reset-password-expert/:email" element={<ResetPasswordExpert/>} />
           <Route exact path="/patient-profile/:patientId" element={<Layout_Navbar_only><Profile/></Layout_Navbar_only>} />
           <Route exact path="/take-test/:id" element={<Layout_Navbar_only> <GiveTest/> </Layout_Navbar_only>} />
           <Route exact path="/measurements/:id" element={<Layout_Navbar_only> <Measurements/> </Layout_Navbar_only>} />

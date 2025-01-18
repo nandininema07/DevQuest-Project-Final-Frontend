@@ -130,7 +130,7 @@ function LoginExpert() {
                   className="w-4 h-4" 
                 />
                 <label className="ml-2 text-sm text-gray-600">Remember Me</label>
-                <Link to="/forgot-password" className="ml-auto text-sm text-[#B5C18E]">Forgot Password?</Link>
+                <Link to="/forgot-password-expert" className="ml-auto text-sm text-[#B5C18E]">Forgot Password?</Link>
               </div>
               <button type="submit" className="bg-[#B5C18E] text-white py-3 rounded-lg hover:bg-[#93A851] font-istok">LOGIN</button>
             </form>

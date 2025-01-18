@@ -114,12 +114,24 @@ function ContactUs() {
               </div>
             </form>
           </div>
+
+          {/* Right-side Contact Details */}
+          <div className="hidden lg:block w-1/2 pl-8">
+            <div className="p-6 bg-white shadow-lg rounded-md">
+              <h2 className="text-2xl font-semibold mb-4">Our Contact Information</h2>
+              <div className="text-gray-800 space-y-2">
+                <p><strong>Email:</strong> info@anthroposync.com</p>
+                <p><strong>Phone:</strong> +123 456 7890</p>
+                <p><strong>Address:</strong> Anthroposync, 123 Health Street, Wellness City, WC1234</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Popup Message */}
       {showPopup && (
-        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white p-4 rounded-md shadow-lg">
+        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white p-4 rounded-md shadow-lg z-50">
           We will get to you shortly!
         </div>
       )}

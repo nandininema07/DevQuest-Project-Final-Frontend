@@ -4,7 +4,7 @@ import { FaEye, FaEyeSlash, FaTimes } from "react-icons/fa";
 import toast from 'react-hot-toast';
 import { backendurl } from '../../urls';
 
-function ResetPassword() {
+function ResetPasswordUser() {
   const navigate = useNavigate();
   const { email } = useParams();
 
@@ -98,7 +98,7 @@ function ResetPassword() {
                   <input
                     type={showNewPassword ? "text" : "password"}
                     placeholder="Enter New Password"
-                    className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B5C18E]"
                     value={newPassword}
                     onChange={(e) => setNewPassword(e.target.value)}
                   />
@@ -114,7 +114,7 @@ function ResetPassword() {
                   <input
                     type={showConfirmPassword ? "text" : "password"}
                     placeholder="Confirm Password"
-                    className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B5C18E]"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                   />
@@ -133,4 +133,4 @@ function ResetPassword() {
   );
 }
 
-export default ResetPassword;
+export default ResetPasswordUser;

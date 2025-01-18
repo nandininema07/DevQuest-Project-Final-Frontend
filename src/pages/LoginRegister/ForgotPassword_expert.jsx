@@ -4,7 +4,7 @@ import { FaTimes } from "react-icons/fa";
 import toast from 'react-hot-toast';
 import { backendurl } from '../../urls';
 
-function ForgotPassword() {
+function ForgotPasswordExpert() {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
@@ -71,7 +71,7 @@ function ForgotPassword() {
         {/* Forgot Password Section */}
         <div className="w-1/2 flex flex-col justify-center items-center font-istok relative">
           <button
-            onClick={() => navigate('/Login')}
+            onClick={() => navigate('/login_expert')}
             className="absolute top-7 right-16 text-xl text-gray-600 hover:text-black"
           >
             <FaTimes />
@@ -79,7 +79,7 @@ function ForgotPassword() {
 
           <div className="w-4/5 bg-white shadow-xl p-8 rounded-lg">
             <h2 className="text-4xl font-bold text-600 mb-4 font-istok-web-bold text-left">
-              <span className="text-[#0051AB]">Forgot</span> Password
+              <span className="text-[#B5C18E]">Forgot</span> Password
             </h2>
             <p className="text-lg text-gray-600 mb-6 font-istok text-left font-medium">
               Enter your email address and we'll send you a link to reset your password.
@@ -91,7 +91,7 @@ function ForgotPassword() {
                   <input
                     type="email"
                     placeholder="Enter your email"
-                    className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B5C18E]"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
@@ -101,7 +101,7 @@ function ForgotPassword() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className={`bg-[#0051AB] text-white py-3 rounded-lg hover:bg-blue-900 font-istok ${isLoading && 'opacity-50 cursor-not-allowed'}`}
+                className={`bg-[#B5C18E] text-white py-3 rounded-lg hover:bg-[#93A851] font-istok ${isLoading && 'opacity-50 cursor-not-allowed'}`}
               >
                 {isLoading ? 'Sending...' : 'Send Reset Link'}
               </button>
@@ -113,4 +113,4 @@ function ForgotPassword() {
   );
 }
 
-export default ForgotPassword;
+export default ForgotPasswordExpert;
