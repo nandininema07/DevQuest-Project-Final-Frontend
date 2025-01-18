@@ -27,6 +27,7 @@ import ForgotPasswordUser from './pages/LoginRegister/ForgotPassword_user';
 import ForgotPasswordExpert from './pages/LoginRegister/ForgotPassword_expert';
 import ResetPasswordUser from './pages/LoginRegister/ResetPassword_user';
 import ResetPasswordExpert from './pages/LoginRegister/ResetPassword_expert';
+import FileUpload from './pages/FileUpload';
 //import ForgotPassword from './pages/LoginRegister/ForgotPassword'; // Example import
 //import ResetPassword from './pages/LoginRegister/ResetPassword'; // Example import
 
@@ -60,6 +61,7 @@ function App() {
             <Route exact path="/measurements/:id" element={<Layout_Navbar_only><Measurements /></Layout_Navbar_only>} />
             <Route exact path="/doctor-profile" element={<Layout_Navbar_only><DoctorProfile /></Layout_Navbar_only>} />
             <Route path="/video-recorder" element={<VideoRecord />} />
+            <Route path="/FileUpload" element={<FileUpload />} />
           </Routes>
         </Router>
       </PatientProvider>
