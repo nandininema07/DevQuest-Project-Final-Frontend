@@ -60,7 +60,7 @@ function TakeTest() {
       const response = await fetch(`${backendurl}/view_patient/?email=${singlePatientDetail?.[0]?.email}`, {
         method: 'GET',
         headers: {
-          Authorization: `Bearer ${tokenJson?.token?.access}`,
+          //Authorization: `Bearer ${tokenJson?.token?.access}`,
           "Content-Type": "application/json",
         },
       });
@@ -96,7 +96,7 @@ function TakeTest() {
         const response = await axios.post(`${backendurl}/video_process/`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
-            'Authorization': `Bearer ${tokenJson?.token?.access}`
+            // 'Authorization': `Bearer ${tokenJson?.token?.access}`
           }
         });
         console.log('Video uploaded successfully:', response.data);
@@ -110,8 +110,8 @@ function TakeTest() {
     }
   };
 
-  const token = getAuthToken();
-  const tokenJson = JSON.parse(token);
+  //const token = getAuthToken();
+  // const tokenJson = JSON.parse(token);
 
   const handleDrop = (event) => {
     event.preventDefault();

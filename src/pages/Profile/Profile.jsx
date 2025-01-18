@@ -8,17 +8,32 @@ import toast from "react-hot-toast";
 import PatientContext from "../../context/PatientContext";
 import { getAuthToken } from "../..";
 import BackButton from "../../components/Backbutton";
+import axios from "axios";
 
 function Profile() {
     const navigate = useNavigate();
     const [profilePicture, setProfilePicture] = useState(null);
     const [loading, setLoading] = useState(false);
-    const token = getAuthToken();
-    const tokenJson = JSON.parse(token);
+    // const token = getAuthToken();
+    // const tokenJson = JSON.parse(token);
     const { patientId } = useParams();
     const { patientDetailsList: pdetails = [], fetchPatientDetails } = useContext(PatientContext);
     const [imageSrc, setImageSrc] = useState(profile); // Profile default image
 
+    axios.defaults.withCredentials = true
+    useEffect(() => {
+        axios.get('http://localhost:3001/profile')
+            .then(result => {
+                console.log(result)
+                if (result.data !== "Success") {
+                    navigate('/login')
+                }
+            })
+            .catch(err => {
+                console.log(err)
+                navigate('/login')
+            })
+    }, [])
 
     // Safeguard against pdetails being null or undefined
     const singlePatientDetail = Array.isArray(pdetails)
@@ -54,7 +69,7 @@ function Profile() {
             const response = await fetch(`${backendurl}/update_patient_profile/`, {
                 method: "POST",
                 headers: {
-                    Authorization: `Bearer ${tokenJson?.token?.access}`,
+                    //Authorization: `Bearer ${tokenJson?.token?.access}`,
                 },
                 body: formData,
             });
@@ -99,7 +114,7 @@ function Profile() {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    Authorization: `Bearer ${tokenJson?.token?.access}`,
+                    //Authorization: `Bearer ${tokenJson?.token?.access}`,
                 },
                 body: JSON.stringify({ email: patientDetails?.email }),
             });
