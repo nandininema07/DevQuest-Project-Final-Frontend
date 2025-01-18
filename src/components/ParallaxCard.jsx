@@ -23,7 +23,7 @@ const ParallaxCard = () => {
   React.useEffect(() => {
     if (inView2) {
       controls2.start({
-        y: -50,
+        y: 0,
         scale: 1,
         transition: { duration: 0.8, ease: "easeOut" },
       });
@@ -33,7 +33,7 @@ const ParallaxCard = () => {
   }, [inView2, controls2]);
 
   return (
-    <div className="relative h-[250vh] bg-slate-100 text-black p-16">
+    <div className="relative h-[150vh] text-black px-16 py-10">
       <div className="text-left mb-10">
         <p className="text-6xl font-semibold">Smooth Scroll Parallax</p>
         <p className="text-xl">
@@ -46,7 +46,7 @@ const ParallaxCard = () => {
         <motion.div
           ref={ref1}
           animate={controls1}
-          initial={{ y: 200, scale: 0.8 }}
+          initial={{ y: 125, scale: 0.8 }}
           className="border-2 bg-[#f7dcb9] text-black p-10 rounded-xl absolute top-0 left-0 right-0 z-10 h-[50vh]"
         >
           <div className="flex items-center justify-evenly my-10">
