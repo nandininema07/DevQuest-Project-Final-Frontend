@@ -63,7 +63,7 @@ function App() {
             <Route exact path="/reset-password-user/:email" element={<ResetPasswordUser />} />
             <Route exact path="/reset-password-expert/:email" element={<ResetPasswordExpert />} />
             
-            <Route exact path="/patient" element={<Layout_Navbar_only><Patient /></Layout_Navbar_only>} />
+            <Route exact path="/patient" element={<Patient />} />
             {/* <Route exact path="/patient" element={<Layout_Navbar_only_expert><Patient /></Layout_Navbar_only_expert>} /> */}
             <Route exact path="/doctor-profile" element={<DoctorProfile />} />
             <Route exact path="/measurements_expert/:id" element={<Layout_Navbar_only><Measurements /></Layout_Navbar_only>} />
