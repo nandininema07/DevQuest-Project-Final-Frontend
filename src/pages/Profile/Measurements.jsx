@@ -6,6 +6,7 @@ import profileImage from '../../images/profile-removebg-preview 1.png';
 import toast, { Toaster } from 'react-hot-toast';
 import { getAuthToken } from '../..';
 import BackButton from '../../components/Backbutton';
+import FloatingChat from '../../components/FloatingChat';
 
 function Measurements() {
     const { id } = useParams();
@@ -86,7 +87,8 @@ function Measurements() {
     }
 
     return (
-        <div className='w-full h-fit mb-10 flex flex-col font-montserrat items-center justify-center mt-20'>
+        <div className='w-full relative h-fit mb-10 flex flex-col font-montserrat items-center justify-center mt-20'>
+            <button className='p-5 absolute bottom-5 left-5' onClick= {() => FloatingChat()}>Chat bot</button>
             <div className='w-full flex items-center'>
                 <BackButton className={"mb-4 mt-2 ml-2 top-0 left-0"} />
                 <h1 className="text-2xl font-bold ml-4">Measurements Table</h1>

@@ -11,6 +11,7 @@ import aboutme from "../../images/Bio.png";
 import { backendurl } from "../../urls";
 import toast, { Toaster } from "react-hot-toast";
 import axios from 'axios';
+import Navbar_Expert from "../../components/Navbar_expert";
 
 function DoctorProfile() {
     const navigate = useNavigate();
@@ -136,6 +137,7 @@ function DoctorProfile() {
     } else {
         return (
             <div className="flex flex-col items-center justify-center h-screen bg-gray-100 w-[100%]">
+                <Navbar_Expert></Navbar_Expert>
                 <div className="w-[90vw] max-w-[100%] bg-white-lg overflow-y-auto p-4 mt-20">
                     <Toaster position="top-center" />
                     
