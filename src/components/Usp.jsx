@@ -13,8 +13,8 @@ const Usp = () => {
 
   return (
     <div className="mt-8 p-5">
-      <p className="text-4xl font-bold text-left" data-aos="fade-up">
-        Lorem ipsum dolor sit amet.
+      <p className="text-4xl font-bold text-left ml-5" data-aos="fade-up">
+        What Do We Offer?
       </p>
 
       <div
@@ -27,8 +27,7 @@ const Usp = () => {
             data-aos="fade-right"
           >
             <p className="font-bold text-center px-4">
-              Lorem ipsum dolor sit amet adipisicing elit.
-              Explicabo, natus!
+            Effortless User Experience
             </p>
           </div>
           
@@ -38,8 +37,7 @@ const Usp = () => {
             data-aos="fade-left"
           >
             <p className="font-bold text-center px-4">
-              Lorem ipsum dolor sit amet consec
-              Explicabo, natus!
+            Expert-Backed Personalized Wellness
             </p>
           </div>
           <div
@@ -47,8 +45,7 @@ const Usp = () => {
             data-aos="fade-right"
           >
             <p className="font-bold text-center px-4">
-              Lorem ipsum dolor sit ame.
-              Explicabo, natus!
+            Real-Time Support via WhatsApp Chatbot
             </p>
           </div>
           <div
@@ -56,8 +53,7 @@ const Usp = () => {
             data-aos="fade-left"
           >
             <p className="font-bold text-center px-4">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Explicabo, natus!
+              AI-Driven Ayurvedic Health Insights
             </p>
           </div>
         </div>

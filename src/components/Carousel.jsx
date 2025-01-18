@@ -24,7 +24,7 @@ const Card = ({ deviceType }) => {
 
   return (
     <div>
-        <p className="font-bold text-2xl text-left ml-16">Our satisfied customers</p>
+        <p className="font-bold text-2xl text-left ml-16 -mt-10">Our satisfied customers</p>
       <Carousel
         swipeable={false}
         draggable={false}
@@ -43,7 +43,7 @@ const Card = ({ deviceType }) => {
         dotListClass="custom-dot-list-style"
         itemClass="carousel-item-padding-40-px"
       >
-        <div className="rounded-xl bg-gradient-to-l from-teal-400 to-slate-100 p-5 m-10">
+        <div className="rounded-xl bg-white shadow-xl p-5 m-10">
           <div>
             <p className="mb-5">
               "I was amazed by how accurately the system diagnosed my issues just by analyzing my nails. The Ayurvedic remedies suggested were easy to follow and highly effective. Truly a revolutionary tool for personalized care!"
@@ -122,7 +122,7 @@ const Card = ({ deviceType }) => {
             </div>
           </div>
         </div>
-        <div className="rounded-xl bg-gradient-to-l from-teal-400 to-slate-100 p-5 m-10">
+        <div className="rounded-xl bg-white shadow-xl p-5 m-10">
           <div>
             <p className="mb-5">
             "The video analysis process was smooth and hassle-free. The remedies provided for my eye strain worked wonders. I highly recommend this service to anyone looking for natural solutions."
@@ -201,7 +201,7 @@ const Card = ({ deviceType }) => {
             </div>
           </div>
         </div>
-        <div className="rounded-xl bg-gradient-to-l from-teal-400 to-slate-100 p-5 m-10">
+        <div className="rounded-xl bg-white shadow-xl p-5 m-10">
           <div>
             <p className="mb-5">
             "I love how the system integrates technology with Ayurveda. The nail analysis helped me address a vitamin deficiency I wasn’t even aware of. Excellent initiative!"
@@ -280,7 +280,7 @@ const Card = ({ deviceType }) => {
             </div>
           </div>
         </div>
-        <div className="rounded-xl bg-gradient-to-l from-teal-400 to-slate-100 p-5 m-10">
+        <div className="rounded-xl bg-white shadow-xl p-5 m-10">
           <div>
             <p className="mb-5">
               "I was amazed by how accurately the system diagnosed my issues just by analyzing my nails. The Ayurvedic remedies suggested were easy to follow and highly effective. Truly a revolutionary tool for personalized care!"

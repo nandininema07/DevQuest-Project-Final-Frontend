@@ -16,8 +16,8 @@ function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const { scrollYProgress } = useScroll();
-  const scale = useTransform(scrollYProgress, [0, 0.5], [0.65, 0.90]);
-  const highlists = ["Visually", "Developer", "Creator", "Mentally"];
+  const scale = useTransform(scrollYProgress, [0, 0.5], [0.75, 1.05]);
+  const highlists = ["Remedy", "Solution", "Treatement", "Cure", "Guide"];
 
 
   useEffect(() => {
@@ -68,13 +68,13 @@ function HomePage() {
 
       {/* Hero Section */}
       <div className="px-28 pb-10 pt-36 mx-18 bg-prim">
-        <p className="text-zinc-800 text-8xl text-left font-semibold">
-          Design, Develop, Deploy React and Apps
+        <p className="text-zinc-800 text-7xl text-left font-semibold">
+          Nature is the Best Doctor, <br /> Ayurveda is the
           <TextLoop interval={2500}>
             {highlists.map((item, index) => (
               <motion.span
                 key={index}
-                className="coloredText text-8xl mx-5 py-3"
+                className="coloredText text-7xl mx-5 py-3"
                 style={{
                   background: "linear-gradient(to right, #4568DC, #B06AB3)",
                   WebkitBackgroundClip: "text",
@@ -82,7 +82,7 @@ function HomePage() {
                 }}
                 initial={{ rotate: 0 }}
                 animate={{ rotate: 360 }}
-                transition={{ duration: 2, ease: "easeInOut" }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
               >
                 {item}
               </motion.span>
@@ -91,18 +91,20 @@ function HomePage() {
         </p>
         <div className="flex justify-between p-5 mx-3 my-10 items-center">
           <div className="pr-4">
-            <p className="font-light text-zinc-800 text-2xl">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Laudantium, enim!
+            <p className="font-light text-zinc-800 text-2xl text-left">
+            Leveraging Technology for Tailored Ayurvedic Health Recommendations.
             </p>
           </div>
-          <div className="flex gap-3">
-            <button className="rounded-full bg-sec text-xl text-black py-2 px-5 hover:bg-tert border-1 border-black transition-all duration-500">
-              Try out demo
-            </button>
-            <button className="rounded-full border border-black text-xl text-black py-2 px-3 hover:bg-black hover:text-white transition-all duration-500">
-              Download
-            </button>
+          <div className="flex">
+          <div className="flex">
+  <button className="rounded-full w-40 mr-4 bg-sec border text-xl text-black py-2 px-5 hover:bg-black hover:text-white border-1 border-black transition-all duration-500">
+    Contact Us
+  </button>
+  <button className="rounded-full w-40 border border-black text-xl text-white py-2 px-5 bg-black hover:bg-[#b5c18e] hover:text-black transition-all duration-500">
+    Sign Up
+  </button>
+</div>
+
           </div>
         </div>
         <motion.div
@@ -119,13 +121,19 @@ function HomePage() {
       <Usp></Usp>
       
       <ParallaxCard></ParallaxCard>
-      <div className='-mt-60'>
+      <div className='-mt-60 mb-10'>
       <Card></Card>
         </div>
       <div style={{ top: "64px", zIndex: 10 }} // Adjust top based on navbar height
           className="sticky">
       
       </div>
+
+      <Link to='/register_user'>
+        <button className="my-6 px-8 py-3 bg-black text-white text-lg rounded-lg hover:bg-[#B5C18E]">
+          Get Started 
+        </button>
+        </Link>
       
       {/* Footer */}
       <footer className="bg-black text-white py-12">
