@@ -249,7 +249,7 @@ function HomePage() {
 
           {/* Footer Bottom */}
           <div className="mt-4 border-t border-gray-700 pt-6 text-center text-sm text-gray-400 ml-4">
-            <div>© 2025 Anthroposync. All rights reserved.</div>
+            <div>© 2025 Arogyam. All rights reserved.</div>
           </div>
         </div>
       </footer>
