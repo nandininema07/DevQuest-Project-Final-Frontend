@@ -30,7 +30,7 @@ function LoginUser() {
     const handleSubmit = (e) => {
         e.preventDefault();
         //window.localStorage.setItem("isLogedIn", true)
-        axios.post('http://localhost:3001/login',{username, password})
+        axios.post('http://localhost:3001/login_user',{username, password})
         .then(result => {console.log(result)
             if(result.data === "Success"){
                 navigate('/patient-profile')

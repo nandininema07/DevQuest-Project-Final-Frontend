@@ -64,7 +64,7 @@ function MsrmtTable() {
                         </div>
                         <button
                             onClick={() => setIsModalOpen(false)}
-                            className="relative mx-20 inline-flex mt-6 items-center justify-center px-10 py-2 overflow-hidden font-medium tracking-tighter text-white hover:bg-blue-700 bg-black rounded-lg mb-4"
+                            className="relative mx-20 inline-flex mt-6 items-center justify-center px-10 py-2 font-medium tracking-tighter text-white hover:bg-blue-700 bg-black rounded-lg mb-4"
                         >
                             <span className="relative">Close</span>
                         </button>

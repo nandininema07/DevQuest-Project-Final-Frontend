@@ -1,38 +1,45 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import axios from "axios";
+import logo from './logo.svg';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import { useState,useEffect } from 'react';
+import axios from 'axios';
 
-// Components and Pages
-import Layout from "./components/Layout";
-import Navbar_Expert from "./components/Navbar_expert";
-import LoginUser from "./pages/LoginRegister/Login_user";
-import LoginExpert from "./pages/LoginRegister/Login_expert";
-import RegisterUser from "./pages/LoginRegister/Register_user";
-import RegisterExpert from "./pages/LoginRegister/Register_expert";
-import ForgotPasswordUser from "./pages/LoginRegister/ForgotPassword_user";
-import ForgotPasswordExpert from "./pages/LoginRegister/ForgotPassword_expert";
-import ResetPasswordUser from "./pages/LoginRegister/ResetPassword_user";
-import ResetPasswordExpert from "./pages/LoginRegister/ResetPassword_expert";
-import PrivacyPolicy from "./pages/Policies_Terms_Contact/privacypolicy";
-import TermsOfUse from "./pages/Policies_Terms_Contact/terms_of_use";
-import CookiePolicy from "./pages/Policies_Terms_Contact/cookiepolicy";
-import ContactUs from "./pages/Policies_Terms_Contact/contact_us";
-import ScrollToTop from "./components/ScrollToTop";
-import Landing from "./pages/Landing";
-import { PatientProvider } from "./context/PatientContext";
-import Measurements from "./pages/Profile/Measurements";
-import Layout_Navbar_only from "./components/Layout_navbar_only";
-import Dashboard from "./pages/Dashboard";
-import Profile from "./pages/Profile/Profile";
-import TakeTest from "./pages/Profile/TakeTest";
-import VideoRecord from "./components/video/VideoRecord";
-import GiveTest from "./components/video/GiveTest";
-import FileUpload from "./pages/FileUpload";
-import Patient from "./pages/Patient";
-import DoctorProfile from "./pages/Profile/DoctorProfile";
-import MsrmtTable from "./components/MsrmtTable";
+import LoginUser from './pages/LoginRegister/Login_user';
+import LoginExpert from './pages/LoginRegister/Login_expert';
+import RegisterUser from './pages/LoginRegister/Register_user';
+import RegisterExpert from './pages/LoginRegister/Register_expert';
+import ForgotPasswordUser from './pages/LoginRegister/ForgotPassword_user';
+import ForgotPasswordExpert from './pages/LoginRegister/ForgotPassword_expert';
+import ResetPasswordUser from './pages/LoginRegister/ResetPassword_user';
+import ResetPasswordExpert from './pages/LoginRegister/ResetPassword_expert';
 
-// Fetch email and store it in state
+import PrivacyPolicy from './pages/Policies_Terms_Contact/privacypolicy';
+import TermsOfUse from './pages/Policies_Terms_Contact/terms_of_use';
+import CookiePolicy from './pages/Policies_Terms_Contact/cookiepolicy';
+import ContactUs from './pages/Policies_Terms_Contact/contact_us';
+import ScrollToTop from './components/ScrollToTop';
+
+import Landing from './pages/Landing';
+import { PatientProvider } from './context/PatientContext';
+
+import Measurements from './pages/Profile/Measurements';
+
+import './App.css';
+import Layout_Navbar_only from './components/Layout_navbar_only';
+import Dashboard from './pages/Dashboard';
+import Profile from './pages/Profile/Profile';
+import TakeTest from './pages/Profile/TakeTest';
+import VideoRecord from './components/video/VideoRecord';
+import GiveTest from './components/video/GiveTest';
+import FileUpload from './pages/FileUpload';
+
+//import Layout_Navbar_only_expert from './components/Navbar_expert';
+import Patient from './pages/Patient';
+import DoctorProfile from './pages/Profile/DoctorProfile';
+import MsrmtTable from './components/MsrmtTable';
+
+
+
 function App() {
   const [email, setEmail] = useState(""); // State to store email
 
@@ -85,35 +92,11 @@ function App() {
             <Route exact path="/forgot-password-expert" element={<ForgotPasswordExpert />} />
             <Route exact path="/reset-password-user/:email" element={<ResetPasswordUser />} />
             <Route exact path="/reset-password-expert/:email" element={<ResetPasswordExpert />} />
-
-            {/* Expert Routes with Navbar_Expert */}
-            <Route
-              exact
-              path="/doctor-profile"
-              element={
-                <Navbar_Expert>
-                  <DoctorProfile />
-                </Navbar_Expert>
-              }
-            />
-            <Route
-              exact
-              path="/patient"
-              element={
-                <Navbar_Expert>
-                  <Patient />
-                </Navbar_Expert>
-              }
-            />
-            <Route
-              exact
-              path="/measurements_expert/:patient_email"
-              element={
-                <Navbar_Expert>
-                  <MeasurementsWrapper email={email} />
-                </Navbar_Expert>
-              }
-            />
+            
+            <Route exact path="/patient" element={<Layout_Navbar_only><Patient /></Layout_Navbar_only>} />
+            {/* <Route exact path="/patient" element={<Layout_Navbar_only_expert><Patient /></Layout_Navbar_only_expert>} /> */}
+            <Route exact path="/doctor-profile" element={<DoctorProfile />} />
+            <Route exact path="/measurements_expert/:id" element={<Measurements />}/>
 
             {/* User Routes */}
             <Route

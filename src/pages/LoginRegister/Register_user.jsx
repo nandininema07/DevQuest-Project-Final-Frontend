@@ -19,11 +19,11 @@ function RegisterUser() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState({});
 
-  useEffect(() => {
-    if (tokenJson?.token?.access) {
-      navigate('/patient');
-    }
-  }, [tokenJson, navigate]);
+  // useEffect(() => {
+  //   if (tokenJson?.token?.access) {
+  //     navigate('/dashboard');
+  //   }
+  // }, [tokenJson, navigate]);
 
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
   const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfirmPassword);
@@ -49,7 +49,7 @@ function RegisterUser() {
     if (Object.keys(validationErrors).length === 0) {
       try {
         const formData = { fullname, username, email, mobile, password };
-        const res = await fetch(`${backendurl}/register`, {
+        const res = await fetch(`${backendurl}/register_user`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(formData),

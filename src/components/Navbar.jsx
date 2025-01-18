@@ -24,12 +24,12 @@ function Navbar() {
               .then(result => {
                   console.log(result)
                   if (result.data !== "Success") {
-                      navigate('/login')
+                      navigate('/login_user')
                   }
               })
               .catch(err => {
                   console.log(err)
-                  navigate('/login')
+                  navigate('/login_user')
               })
       }, [])
 
