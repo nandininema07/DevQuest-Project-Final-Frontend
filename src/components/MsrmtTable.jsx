@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 function MsrmtTable() {
     const [measurementHistoryData, setMeasurementHistoryData] = useState([
-        { id: 1, date: '2025-01-01', details: 'Measurement 1', landmark_image_base64: null },
-        { id: 2, date: '2025-01-02', details: 'Measurement 2', landmark_image_base64: null },
-        { id: 3, date: '2025-01-03', details: 'Measurement 3', landmark_image_base64: null },
+        { id: 1, date: '2025-01-01', details: 'You have Pitta imbalance, which can lead to redness, inflammation, and pigmentation issues, can be managed by using cooling, soothing herbs like aloe vera and sandalwood, reducing spicy and oily foods, minimizing excess heat, and adopting a cooling lifestyle and practices.', landmark_image_base64: null },
+        { id: 2, date: '2025-01-02', details: 'You have Vata imbalance, which often leads to dry, flaky, or rough skin, can be addressed by applying warm oil massages, preferably with sesame or coconut oil, drinking warm herbal teas, and consuming moist, grounding foods like soups and stews to restore moisture and warmth.', landmark_image_base64: null },
+        { id: 3, date: '2025-01-03', details: 'You have Kapha imbalance, which may cause sluggish circulation and fluid retention, leading to puffiness and dark circles, can be managed by increasing movement and physical activity, reducing dairy and salty foods, and trying herbal remedies such as Triphala to promote circulation.', landmark_image_base64: null },
         // Add more sample data here...
     ]);
     const [isModalOpen, setIsModalOpen] = useState(false);

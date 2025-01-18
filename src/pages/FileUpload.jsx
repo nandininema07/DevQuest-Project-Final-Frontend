@@ -27,7 +27,7 @@ const FileUpload = () => {
             setMessage("File uploaded"); // Display backend response
         } catch (error) {
             console.error("Upload error:", error);
-            setMessage("Error uploading file.");
+            setMessage(response.data.pythonOutput);
         }
     };
 
