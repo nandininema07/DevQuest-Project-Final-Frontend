@@ -5,17 +5,33 @@ import { FaBars } from 'react-icons/fa';
 import { backendurl } from '../urls';
 import avatar from '../images/profile-removebg-preview 1.png';
 import { getAuthToken } from '..';
+import axios from 'axios';
 
 function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
   const [showMenu, setShowMenu] = useState(false);
-  const token = getAuthToken();
-  const tokenJson = JSON.parse(token);
+  // const token = getAuthToken();
+  // const tokenJson = JSON.parse(token);
 
   const [doctorDetails, setDoctorDetails] = useState({});
   const isDoctorRoute = location.pathname === '/doctor-profile';
   const isPatientRoute = location.pathname === '/patient';
+
+  axios.defaults.withCredentials = true
+      useEffect(() => {
+          axios.get('http://localhost:3001/home')
+              .then(result => {
+                  console.log(result)
+                  if (result.data !== "Success") {
+                      navigate('/login')
+                  }
+              })
+              .catch(err => {
+                  console.log(err)
+                  navigate('/login')
+              })
+      }, [])
 
   useEffect(() => {
     const fetchDoctorDetails = async () => {
@@ -23,7 +39,7 @@ function Navbar() {
         const response = await fetch(`${backendurl}/profile/`, {
           method: 'GET',
           headers: {
-            Authorization: `Bearer ${tokenJson?.token?.access}`,
+            // Authorization: `Bearer ${tokenJson?.token?.access}`,
           },
         });
 
