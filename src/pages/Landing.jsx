@@ -12,6 +12,7 @@ import ParallaxCard from "../components/ParallaxCard"
 import Usp from "../components/Usp";
 import Card from "../components/Carousel";
 import { useNavigate } from "react-router-dom";
+import Dashboard from "./Dashboard";
 
 function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
