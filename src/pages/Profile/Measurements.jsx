@@ -15,8 +15,8 @@ function Measurements() {
     const [isImageModalOpen, setIsImageModalOpen] = useState(false); // New state for image modal
     const [expanded, setExpanded] = useState(false); // To control "See More" toggle
     const modalRef = useRef(null);
-    const token = getAuthToken();
-    const tokenJson = JSON.parse(token);
+    //const token = getAuthToken();
+    // const tokenJson = JSON.parse(token);
 
     const [measurementHistoryData, setMeasurementHistoryData] = useState([]);
     const [measurementDetails, setMeasurementDetails] = useState(null); // To store the selected entry
@@ -35,15 +35,15 @@ function Measurements() {
     useEffect(() => {
         const fetchMeasurementHistory = async () => {
             try {
-                if (!tokenJson?.token?.access) {
-                    navigate("/login");
-                    return;
-                }
+                // if (!tokenJson?.token?.access) {
+                //     navigate("/login");
+                //     return;
+                // }
 
                 const response = await fetch(`${backendurl}/measurement_history/?patient_id=${id}`, {
                     method: "GET",
                     headers: {
-                        Authorization: `Bearer ${tokenJson?.token?.access}`,
+                       // Authorization: `Bearer ${tokenJson?.token?.access}`,
                         "Content-Type": "application/json",
                     },
                 });
@@ -72,7 +72,8 @@ function Measurements() {
         };
 
         fetchMeasurementHistory();
-    }, [id, tokenJson?.token?.access]);
+    }, [id]);
+    // }, [id, tokenJson?.token?.access]);
 
     const removeUnderscores = (inputString) => inputString.replace(/_/g, ' ');
 
