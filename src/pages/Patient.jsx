@@ -8,8 +8,9 @@ import toast, { Toaster } from "react-hot-toast";
 import avatar from "../images/profile-removebg-preview 1.png";
 import PatientContext from "../context/PatientContext";
 import Pagination from "../components/Pagination";
-import { getAuthToken } from "..";
+//import { getAuthToken } from "..";
 import BackButton from "../components/Backbutton";
+import axios from 'axios'
 
 function Patient() {
   const navigate = useNavigate();
@@ -18,11 +19,27 @@ function Patient() {
     useContext(PatientContext);
   const [searchField, setSearchField] = useState("");
   const [doctorDetails, setDoctorDetails] = useState({});
-  const token = getAuthToken();
-  const tokenJson = JSON.parse(token);
+  //const token = getAuthToken();
+  //const tokenJson = JSON.parse(token);
 
   // Fetch User's Full Name
-  const userFullName = tokenJson?.user?.fullname || "User";
+  //const userFullName = tokenJson?.user?.fullname || "User";
+  const userFullName = "User";
+
+  axios.defaults.withCredentials = true
+    useEffect(() => {
+        axios.get('http://localhost:3001/patient')
+            .then(result => {
+                console.log(result)
+                if (result.data !== "Success") {
+                    navigate('/login_user')
+                }
+            })
+            .catch(err => {
+                console.log(err)
+                navigate('/login_user')
+            })
+    }, [])
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3;
@@ -68,7 +85,8 @@ function Patient() {
       const response = await fetch(`${backendurl}/add_patient/`, {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${tokenJson?.token?.access}`,
+          //Authorization: `Bearer ${tokenJson?.token?.access}`,
+          //Authorization: `Bearer ${access}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify(patientDetailsAdd),
@@ -127,7 +145,7 @@ function Patient() {
       const response = await fetch(`${backendurl}/dashboard/`, {
         method: "GET",
         headers: {
-          Authorization: `Bearer ${tokenJson?.token?.access}`,
+          //Authorization: `Bearer ${tokenJson?.token?.access}`,
           "Content-Type": "application/json",
         },
       });
@@ -167,15 +185,15 @@ function Patient() {
 
     const fetchDoctorDetails = async () => {
             try {
-              if (!tokenJson?.token?.access) {
-                navigate("/login");
-                return;
-              }
+              // if (!tokenJson?.token?.access) {
+              //   navigate("/login");
+              //   return;
+              // }
     
               const response = await fetch(`${backendurl}/profile/`, {
                 method: "GET",
                 headers: {
-                  Authorization: `Bearer ${tokenJson?.token?.access}`,
+                  //Authorization: `Bearer ${tokenJson?.token?.access}`,
                 },
               });
     

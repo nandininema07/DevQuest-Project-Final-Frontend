@@ -49,7 +49,7 @@ function RegisterExpert() {
     if (Object.keys(validationErrors).length === 0) {
       try {
         const formData = { fullname, username, email, mobile, password };
-        const res = await fetch(`${backendurl}/signup/`, {
+        const res = await fetch(`${backendurl}/ExpertRegister`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(formData),
