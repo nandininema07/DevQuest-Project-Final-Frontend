@@ -32,7 +32,7 @@ import VideoRecord from './components/video/VideoRecord';
 import GiveTest from './components/video/GiveTest';
 import FileUpload from './pages/FileUpload';
 
-import Layout_Navbar_only_expert from './components/Navbar_expert';
+//import Layout_Navbar_only_expert from './components/Navbar_expert';
 import Patient from './pages/Patient';
 import DoctorProfile from './pages/Profile/DoctorProfile';
 
@@ -65,8 +65,8 @@ function App() {
             
             <Route exact path="/patient" element={<Layout_Navbar_only><Patient /></Layout_Navbar_only>} />
             {/* <Route exact path="/patient" element={<Layout_Navbar_only_expert><Patient /></Layout_Navbar_only_expert>} /> */}
-            <Route exact path="/doctor-profile" element={<Layout_Navbar_only_expert><DoctorProfile /></Layout_Navbar_only_expert>} />
-            <Route exact path="/measurements_expert/:id" element={<Layout_Navbar_only_expert><Measurements /></Layout_Navbar_only_expert>} />
+            <Route exact path="/doctor-profile" element={<DoctorProfile />} />
+            <Route exact path="/measurements_expert/:id" element={<Layout_Navbar_only><Measurements /></Layout_Navbar_only>} />
 
             
             <Route exact path="/patient-profile" element={<Layout_Navbar_only><Profile /></Layout_Navbar_only>} />

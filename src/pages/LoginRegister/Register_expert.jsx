@@ -58,7 +58,7 @@ function RegisterExpert() {
 
         if (res.ok) {
           toast.success('Registered Successfully');
-          setTimeout(() => navigate('/login'), 2000);
+          setTimeout(() => navigate('/login_expert'), 2000);
         } else {
           toast.error(response.message);
         }
