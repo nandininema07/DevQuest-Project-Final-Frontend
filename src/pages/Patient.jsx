@@ -11,7 +11,7 @@ import Pagination from "../components/Pagination";
 //import { getAuthToken } from "..";
 import BackButton from "../components/Backbutton";
 import axios from 'axios'
-import DoctorProfile from "./Profile/DoctorProfile";
+import DoctorProfile from "./Profile/Doctor_Profile";
 import logo from "../images/LOGO_FINAL.png"
 
 function Patient() {
