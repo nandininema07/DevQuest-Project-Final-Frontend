@@ -11,6 +11,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import ParallaxCard from "../components/ParallaxCard"
 import Usp from "../components/Usp";
 import Card from "../components/Carousel";
+import { useNavigate } from "react-router-dom";
 
 function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);

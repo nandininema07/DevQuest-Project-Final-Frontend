@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import profile from "../../images/profile-removebg-preview 1.png";
 import edit from "../../images/Edit.png";
 import BackButton from "../../components/Backbutton";
+import axios from 'axios'
 
 function Profile() {
     const navigate = useNavigate();
@@ -16,6 +17,24 @@ function Profile() {
         setPatientDetails({ ...patientDetails, [name]: value });
     };
 
+    useEffect(() => {
+        // Fetch the patient details from the backend (email, fullname, mobile)
+        axios
+            .get("http://localhost:3001/profileInfo")
+            .then((response) => {
+                const data = response.data;
+                // Assuming the API response contains 'email', 'fullname', and 'mobile'
+                setPatientDetails({
+                    email: data.email || "",
+                    fullname: data.fullname || "",
+                    mobile: data.mobile || "",
+                });
+            })
+            .catch((error) => {
+                console.error("Error fetching patient details:", error);
+            });
+    }, []);
+    
     // Handle profile picture change
     const handleImageChange = (e) => {
         const file = e.target.files[0];
