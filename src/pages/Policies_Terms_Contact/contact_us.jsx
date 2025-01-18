@@ -1,143 +1,130 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../images/LOGO_FINAL.png';
-import { getAuthToken } from '../..';
-import { backendurl } from '../../urls';
 
 function ContactUs() {
-    const [isScrolled, setIsScrolled] = useState(false);
-    const [formData, setFormData] = useState({ fullname: '', email: '', message: '' });
-    const [responseMessage, setResponseMessage] = useState('');
-    const [messageType, setMessageType] = useState('');
+  const [showPopup, setShowPopup] = useState(false);
 
-    useEffect(() => {
-        const handleScroll = () => setIsScrolled(window.scrollY > 50);
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
 
-    const handleInputChange = (e) => {
-        const { id, value } = e.target;
-        setFormData({ ...formData, [id]: value });
-    };
+    formData.append("access_key", "52c99063-65a7-40ca-9b58-d58fa9a13609");
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await fetch(`${backendurl}/contact_us/`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData),
-            });
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
 
-            if (response.ok) {
-                setResponseMessage('Thank you for your message. We will get back to you shortly.');
-                setMessageType('success');
-                setFormData({ fullname: '', email: '', message: '' });
-            } else {
-                const errorData = await response.json();
-                setResponseMessage(errorData?.fullname?.[0] || 'Oops! Something went wrong. Please try again.');
-                setMessageType('error');
-            }
-        } catch (error) {
-            setResponseMessage('Error: Unable to send message. Please try again later.');
-            setMessageType('error');
-        }
-    };
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: json,
+    }).then((res) => res.json());
 
-    return (
-        <div className="min-h-screen flex flex-col">
-            <div className="flex-grow">
-                <nav className="fixed top-0 left-0 w-full py-4 transition-all duration-300 z-50 bg-black text-white">
-                    <div className="container mx-auto flex justify-between items-center px-6">
-                        <Link to="/" className="flex items-center">
-                            <img src={logo} alt="Logo" className="w-12 h-12 mr-3" />
-                            <span className="text-xl font-istok-web font-bold">ANTHROPOSYNC</span>
-                        </Link>
-                        <div className="flex space-x-4">
-                            <Link to="/" className="font-istok-web font-bold text-lg px-4 py-2 rounded transition-all hover:bg-blue-700 hover:text-white">
-                                Home
-                            </Link>
-                            <Link to="/Login" className="font-istok-web font-bold text-lg px-4 py-2 rounded transition-all hover:bg-blue-700 hover:text-white">
-                                Login
-                            </Link>
-                            <Link to="/register" className="font-istok-web font-bold text-lg px-4 py-2 rounded transition-all hover:bg-blue-700 hover:text-white">
-                                Register
-                            </Link>
-                        </div>
-                    </div>
-                </nav>
+    if (res.success) {
+      setShowPopup(true); // Show the popup
+      setTimeout(() => setShowPopup(false), 3000); // Hide the popup after 3 seconds
+    }
+  };
 
-                <div className="mt-10 mb-10 flex flex-wrap items-center justify-center h-[calc(100vh-70px)] px-8 lg:px-32 py-16">
-                    <div className="w-full lg:w-1/2 pr-8">
-                        <h1 className="text-4xl font-extrabold text-blue-700 mb-4">Contact Us</h1>
-                        <p className="mb-6">We’d love to hear from you! Please reach out to us with any questions, concerns, or feedback.</p>
-                        <form className="space-y-4" onSubmit={handleSubmit}>
-                            <div className="flex flex-col">
-                                <label htmlFor="fullname" className="text-lg mb-1">Full Name</label>
-                                <input
-                                    type="text"
-                                    id="fullname"
-                                    className="px-4 py-2 border border-gray-300 rounded-md"
-                                    placeholder="Your full name"
-                                    value={formData.fullname}
-                                    onChange={handleInputChange}
-                                    required
-                                />
-                            </div>
-                            <div className="flex flex-col">
-                                <label htmlFor="email" className="text-lg mb-1">Email Address</label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    className="px-4 py-2 border border-gray-300 rounded-md"
-                                    placeholder="Your email address"
-                                    value={formData.email}
-                                    onChange={handleInputChange}
-                                    required
-                                />
-                            </div>
-                            <div className="flex flex-col">
-                                <label htmlFor="message" className="text-lg mb-1">Your Message</label>
-                                <textarea
-                                    id="message"
-                                    className="px-4 py-2 border border-gray-300 rounded-md"
-                                    rows="4"
-                                    placeholder="Your message"
-                                    value={formData.message}
-                                    onChange={handleInputChange}
-                                    required
-                                />
-                            </div>
-                            <div className="flex justify-start">
-                                <button
-                                    type="submit"
-                                    className="px-6 py-2 bg-blue-700 text-white font-semibold rounded-md hover:bg-blue-800"
-                                >
-                                    Send Message
-                                </button>
-                            </div>
-                        </form>
-                        {responseMessage && (
-                            <p className={`mt-2 text-lg ${messageType === 'success' ? 'text-green-500' : 'text-red-500'}`}>
-                                {responseMessage}
-                            </p>
-                        )}
-                    </div>
-
-                    <div className="hidden lg:block w-1/2 pl-8">
-                        <div className="p-6 bg-white shadow-lg rounded-md">
-                            <h2 className="text-2xl font-semibold mb-4">Our Contact Information</h2>
-                            <div className="text-gray-800 space-y-2">
-                                <p><strong>Email:</strong> info@anthroposync.com</p>
-                                <p><strong>Phone:</strong> +123 456 7890</p>
-                                <p><strong>Address:</strong> Anthroposync, 123 Health Street, Wellness City, WC1234</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  return (
+    <div className="min-h-screen flex flex-col">
+      <div className="flex-grow">
+        <nav className="fixed top-0 left-0 w-full py-4 transition-all duration-300 z-50 bg-black text-white">
+          <div className="container mx-auto flex justify-between items-center px-6">
+            <Link to="/" className="flex items-center">
+              <img src={logo} alt="Logo" className="w-12 h-12 mr-3" />
+              <span className="text-xl font-istok-web font-bold">ANTHROPOSYNC</span>
+            </Link>
+            <div className="flex space-x-4">
+              <Link
+                to="/"
+                className="font-istok-web font-bold text-lg px-4 py-2 rounded transition-all hover:bg-blue-700 hover:text-white"
+              >
+                Home
+              </Link>
+              <Link
+                to="/Login"
+                className="font-istok-web font-bold text-lg px-4 py-2 rounded transition-all hover:bg-blue-700 hover:text-white"
+              >
+                Login
+              </Link>
+              <Link
+                to="/register"
+                className="font-istok-web font-bold text-lg px-4 py-2 rounded transition-all hover:bg-blue-700 hover:text-white"
+              >
+                Register
+              </Link>
             </div>
-             <footer className="bg-black text-white py-12 mt-10">
+          </div>
+        </nav>
+
+        <div className="mt-10 mb-10 flex flex-wrap items-center justify-center h-[calc(100vh-70px)] px-8 lg:px-32 py-16">
+          <div className="w-full lg:w-1/2 pr-8">
+            <h1 className="text-4xl font-extrabold text-blue-700 mb-4">Contact Us</h1>
+            <p className="mb-6">
+              We’d love to hear from you! Please reach out to us with any questions, concerns, or feedback.
+            </p>
+            <form className="space-y-4" onSubmit={onSubmit}>
+              <div className="flex flex-col">
+                <label htmlFor="name" className="text-lg mb-1">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  className="px-4 py-2 border border-gray-300 rounded-md"
+                  placeholder="Your full name"
+                  name="name"
+                  required
+                />
+              </div>
+              <div className="flex flex-col">
+                <label htmlFor="email" className="text-lg mb-1">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  className="px-4 py-2 border border-gray-300 rounded-md"
+                  placeholder="Your email address"
+                  name="email"
+                  required
+                />
+              </div>
+              <div className="flex flex-col">
+                <label htmlFor="message" className="text-lg mb-1">
+                  Your Message
+                </label>
+                <textarea
+                  name="message"
+                  className="px-4 py-2 border border-gray-300 rounded-md"
+                  rows="4"
+                  placeholder="Your message"
+                  required
+                />
+              </div>
+              <div className="flex justify-start">
+                <button
+                  type="submit"
+                  className="px-6 py-2 bg-blue-700 text-white font-semibold rounded-md hover:bg-blue-800"
+                >
+                  Send Message
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      {/* Popup Message */}
+      {showPopup && (
+        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white p-4 rounded-md shadow-lg">
+          We will get to you shortly!
+        </div>
+      )}
+
+<footer className="bg-black text-white py-12 mt-10">
                           <div className="container mx-auto px-6">
                             <div className="flex flex-wrap justify-between">
                               {/* Logo and Description */}
@@ -249,8 +236,8 @@ function ContactUs() {
                             </div>
                           </div>
                         </footer>
-        </div>
-    );
+    </div>
+  );
 }
 
 export default ContactUs;

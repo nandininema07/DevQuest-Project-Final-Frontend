@@ -35,8 +35,8 @@ function ResetPassword() {
         {/* Logo and Website Name */}
         <button onClick={() => navigate('/')}>
           <div className="absolute top-4 left-8 flex items-center">
-            <img src={require('../../images/LOGO_FINAL.png')} alt="Logo" className="w-12 h-12 mr-3" />
-            <span className="text-black text-xl font-istok-web font-bold">ANTHROPOSYNC</span>
+            <img src={require('../../images/LOGO_FINAL.png')} alt="Logo" className="w-10 h-10 mr-3" />
+            <span className="text-black text-3xl font-ananda_namaste">AROGYAM</span>
           </div>
         </button>
 
@@ -59,7 +59,7 @@ function ResetPassword() {
 
           <div className="w-4/5 bg-white shadow-xl p-8 rounded-lg">
             <h2 className="text-4xl font-bold text-600 mb-4 font-istok-web-bold text-left">
-              <span className="text-[#0051AB]">Reset</span> Your Password
+              <span className="text-[#B5C18E]">Reset</span> Your Password
             </h2>
             <p className="text-lg text-gray-600 mb-6 font-istok text-left font-medium">Please enter your new password.</p>
             <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
@@ -95,7 +95,7 @@ function ResetPassword() {
                 </div>
                 {confirmPasswordError && <p className="text-red-500 text-sm">{confirmPasswordError}</p>}
               </div>
-              <button className="bg-[#0051AB] text-white py-3 rounded-lg hover:bg-blue-900 font-istok">Reset Password</button>
+              <button className="bg-[#B5C18E] text-white py-3 rounded-lg hover:bg-[#93A851] font-istok">Reset Password</button>
             </form>
           </div>
         </div>

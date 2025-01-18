@@ -4,8 +4,10 @@ import Layout from './components/Layout';
 import Layout_Navbar_only from './components/Layout_navbar_only';
 import Patient from './pages/Patient'
 import DoctorProfile from './pages/Profile/DoctorProfile';
-import Login from './pages/LoginRegister/Login';
-import Register from './pages/LoginRegister/Register';
+import LoginUser from './pages/LoginRegister/Login_user';
+import LoginExpert from './pages/LoginRegister/Login_expert';
+import RegisterUser from './pages/LoginRegister/Register_user';
+import RegisterExpert from './pages/LoginRegister/Register_expert';
 import ScrollToTop from './components/ScrollToTop'
 
 import './App.css';
@@ -40,8 +42,11 @@ function App() {
         <Route exact path="/terms_of_use" element={<TermsOfUse />} />
         <Route exact path="/cookiepolicy" element={<CookiePolicy />} />
         <Route exact path="/contact_us" element={<ContactUs />} />
-          <Route exact path="/login" element={<Login/>} />
-          <Route exact path="/register" element={<Register/>} />
+
+          <Route exact path="/login_user" element={<LoginUser/>} />
+          <Route exact path="/login_expert" element={<LoginExpert/>} />
+          <Route exact path="/register_user" element={<RegisterUser/>} />
+          <Route exact path="/register_expert" element={<RegisterExpert/>} />
           <Route exact path="/forgot-password" element={<ForgotPassword/>} />
           <Route exact path="/reset-password/:id/:token" element={<ResetPassword/>} />
           <Route exact path="/patient-profile/:patientId" element={<Layout_Navbar_only><Profile/></Layout_Navbar_only>} />
