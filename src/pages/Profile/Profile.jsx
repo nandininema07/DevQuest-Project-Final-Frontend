@@ -4,12 +4,22 @@ import profile from "../../images/profile-removebg-preview 1.png";
 import edit from "../../images/Edit.png";
 import BackButton from "../../components/Backbutton";
 import axios from 'axios'
+import logo from "../../images/LOGO_FINAL.png"
+import avatar from "../../images/profile-removebg-preview 1.png";
 
 function Profile() {
     const navigate = useNavigate();
     const [patientDetails, setPatientDetails] = useState({});
     const [profilePicture, setProfilePicture] = useState(null);
     const [imageSrc, setImageSrc] = useState(profile); // Default profile image
+
+    const [showMenu, setShowMenu] = useState(false);
+    const handleLogout = () => {
+        localStorage.clear();
+        sessionStorage.removeItem('AnthropometricToken');
+        axios.post('http://localhost:3001/logout')
+        navigate('/login_user');
+      };
 
     // Update patient details locally
     const handleUpdatePatientDetails = (e) => {
@@ -58,13 +68,48 @@ function Profile() {
     };
 
     return (
-        <div className="w-full h-screen flex items-center justify-center relative mt-20">
+        <div>
+            <div>
+            <nav className="fixed flex w-full bg-[#97a36d] shadow-md p-2 items-center justify-between h-16 z-10 absolute top-0">
+      {/* Logo and Title */}
+      <div className="flex items-center">
+        <img src={logo} className="h-10 w-10" alt="Logo" />
+        <span className="ml-3 text-3xl text-white font-ananda_namaste">AROGYAM</span>
+      </div>
+
+      {/* Right Side */}
+      <div className="flex items-center gap-6">
+        <Link className="px-4 py-2 font-medium text-white rounded-lg hover:opacity-80" to="/dashboard">
+          Dashboard
+        </Link>
+        <Link className="px-4 py-2 font-medium text-white rounded-lg bg-black hover:opacity-80" to="/patient-profile">
+          My Profile
+        </Link>
+        <div className="relative">
+          <img
+            className="h-10 w-10 rounded-full cursor-pointer"
+            src={avatar}
+            alt="Profile"
+            onClick={() => setShowMenu(!showMenu)}
+          />
+          {showMenu && (
+            <div className="absolute right-0 mt-2 bg-white shadow-lg rounded-lg py-2">
+              <button className="block px-4 py-2 text-black hover:bg-gray-100" onClick={handleLogout}>
+                Logout
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
+    </nav>
+            </div>
+            <div className="w-full h-screen flex items-center justify-center relative mt-20">
             <div className="absolute top-0 left-0 flex items-center">
                 <BackButton className={"mb-4 ml-2 mt-3"} />
                 <h2 className="text-xl font-bold ml-4">PATIENT DETAILS</h2>
             </div>
 
-            <div className="flex w-11/12 shadow-lg p-4 rounded-xl -mt-10">
+            <div className="flex w-11/12 shadow-lg p-4 rounded-xl -mt-10 mx-auto">
                 {/* Profile Section */}
                 <div className="w-1/3 flex-col flex items-center justify-center">
                     <div className="flex rounded-full bg-gray-300 relative">
@@ -202,6 +247,8 @@ function Profile() {
                 </div>
             </div>
         </div>
+        </div>
+        
     );
 }
 

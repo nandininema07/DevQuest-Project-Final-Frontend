@@ -19,6 +19,8 @@ function TakeTest() {
   const [videoBlob, setVideoBlob] = useState(null);
   const [uploadedFile, setUploadedFile] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [timer, setTimer] = useState(0);  // Timer state to track the elapsed time
+  const [intervalId, setIntervalId] = useState(null);  // State to store the interval ID
   const { id } = useParams();
   const navigate = useNavigate();
   const { patientDetailsList: pdetails } = useContext(PatientContext);
@@ -28,6 +30,10 @@ function TakeTest() {
 
   const startRecording = async () => {
     setRecording(true);
+    setTimer(0); // Reset the timer when starting a new recording
+    const id = setInterval(() => setTimer(prevTime => prevTime + 1), 1000); // Start the timer
+    setIntervalId(id); // Store the interval ID so we can clear it later
+
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
       const recorder = new MediaRecorder(stream);
@@ -47,6 +53,7 @@ function TakeTest() {
   const stopRecording = () => {
     if (recording) {
       setRecording(false);
+      clearInterval(intervalId);  // Stop the timer when recording stops
     }
   };
 
@@ -112,6 +119,9 @@ function TakeTest() {
           <button onClick={sendVideoToBackend} className="bg-green-500 text-white px-4 py-2 rounded-lg">Upload</button>
           <button onClick={() => document.getElementById('fileUpload').click()} className="bg-gray-500 text-white px-4 py-2 rounded-lg">Upload File (.mp4)</button>
           <input id="fileUpload" type="file" accept=".mp4" onChange={handleFileUpload} style={{ display: 'none' }} />
+          
+          {/* Timer Display */}
+          {recording && <p className="mt-4 text-xl font-semibold">Recording Time: {timer}s</p>}
         </div>
       </div>
     </div>
