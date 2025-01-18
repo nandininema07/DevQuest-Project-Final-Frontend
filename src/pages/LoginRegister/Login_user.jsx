@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { getAuthToken } from '../..';
 import { backendurl } from '../../urls';
+import axios from 'axios'
 
 function LoginUser() {
   const navigate = useNavigate();
@@ -17,44 +18,26 @@ function LoginUser() {
   const [usernameError, setUsernameError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
-  useEffect(() => {
-    if (tokenJson?.token?.access) {
-      navigate('/patient');
-    }
-  }, [tokenJson, navigate]);
+  // useEffect(() => {
+  //   if (tokenJson?.token?.access) {
+  //     navigate('/patient');
+  //   }
+  // }, [tokenJson, navigate]);
 
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setUsernameError('');
-    setPasswordError('');
-
-    if (!username.trim()) setUsernameError('Username is required');
-    if (!password.trim()) setPasswordError('Password is required');
-
-    if (username.trim() && password.trim()) {
-      const formData = { username, password };
-      try {
-        const res = await fetch(`${backendurl}/login/`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        });
-        const response = await res.json();
-
-        if (res.ok) {
-          (rememberMe ? localStorage : sessionStorage).setItem("AnthropometricToken", JSON.stringify(response));
-          toast.success('You are successfully logged in');
-          setTimeout(() => navigate("/patient"), 2000);
-        } else {
-          toast.error(response.message);
-        }
-      } catch (err) {
-        toast.error(err.message);
-      }
+  axios.defaults.withCredentials = true
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        //window.localStorage.setItem("isLogedIn", true)
+        axios.post('http://localhost:3001/login',{username, password})
+        .then(result => {console.log(result)
+            if(result.data === "Success"){
+                navigate('/patient')
+            }
+        })
+        .catch(err => console.log(err))
     }
-  };
 
   return (
     <>
