@@ -119,6 +119,7 @@ function HomePage() {
         </motion.div>
       </div>
       <Usp></Usp>
+      <Dashboard></Dashboard>
       
       <ParallaxCard></ParallaxCard>
       <div className='-mt-60'>
