@@ -114,7 +114,11 @@ function HomePage() {
           />
         </motion.div>
       </div>
+      <div style={{ top: "64px", zIndex: 10 }} // Adjust top based on navbar height
+          className="sticky">
       <ParallaxCard></ParallaxCard>
+      </div>
+      
       {/* Footer */}
       <footer className="bg-black text-white py-12">
         <div className="container mx-auto px-6">
