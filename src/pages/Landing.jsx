@@ -10,6 +10,7 @@ import TextLoop from "react-text-loop";
 import { motion, useScroll, useTransform } from "framer-motion";
 import ParallaxCard from "../components/ParallaxCard"
 import Usp from "../components/Usp";
+import Page from "../components/Page";
 
 function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -116,6 +117,7 @@ function HomePage() {
         </motion.div>
       </div>
       <ParallaxCard></ParallaxCard>
+      <Page></Page>
       <Usp></Usp>
       {/* Footer */}
       <footer className="bg-black text-white py-12">
