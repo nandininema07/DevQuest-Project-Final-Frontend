@@ -45,7 +45,7 @@ function Navbar() {
   const handleLogout = () => {
     localStorage.clear();
     sessionStorage.removeItem('AnthropometricToken');
-    navigate('/login');
+    navigate('/login_user');
   };
 
   return (

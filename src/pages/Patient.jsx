@@ -169,7 +169,7 @@ function Patient() {
       try {
         const result = await axios.get(`${backendurl}/patient`, {
           headers: {
-            Authorization: `Bearer ${tokenJson?.token?.access}`,
+            Authorization: `Bearer ${'User'}`,
           },
           withCredentials: true,
         });
