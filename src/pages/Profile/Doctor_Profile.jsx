@@ -56,13 +56,13 @@ function DoctorProfile() {
   <div className="flex items-center gap-6">
     <a
       href="/Patient"
-      className="px-4 py-2 font-medium text-white rounded-lg hover:opacity-80 bg-black"
+      className="px-4 py-2 font-medium text-white rounded-lg hover:opacity-80 hover:bg-black"
     >
       Patient Information
     </a>
     <a
       href="/doctor-profile"
-      className="px-4 py-2 font-medium text-white rounded-lg hover:opacity-80 hover:bg-black"
+      className="px-4 py-2 font-medium text-white rounded-lg hover:opacity-80 bg-black"
     >
       My Profile
     </a>

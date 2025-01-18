@@ -21,6 +21,14 @@ function Patient() {
 
   const userFullName = "User";
 
+  const [showMenu, setShowMenu] = useState(false);
+  const handleLogout = () => {
+      localStorage.clear();
+      sessionStorage.removeItem('AnthropometricToken');
+      axios.post('http://localhost:3001/logout')
+      navigate('/login_user');
+    };
+
   useEffect(() => {
     // Fetch the doctor details and patient data
     const fetchPatientDetails = async () => {
@@ -119,7 +127,50 @@ function Patient() {
     );
   } else {
     return (
-      <div className="flex flex-col items-center justify-center w-full mt-20 mx-10">
+      <div>
+        <nav className="fixed flex w-full bg-[#97a36d] shadow-md p-2 items-center justify-between h-16 z-10 absolute top-0">
+  {/* Logo and Title */}
+  <div className="flex items-center">
+    <img src={logo} className="h-10 w-10" alt="Logo" />
+    <span className="ml-3 text-3xl text-white font-ananda_namaste">AROGYAM</span>
+  </div>
+
+  {/* Right Side */}
+  <div className="flex items-center gap-6">
+    <a
+      href="/Patient"
+      className="px-4 py-2 font-medium text-white rounded-lg hover:opacity-80 bg-black"
+    >
+      Patient Information
+    </a>
+    <a
+      href="/doctor-profile"
+      className="px-4 py-2 font-medium text-white rounded-lg hover:opacity-80 hover:bg-black"
+    >
+      My Profile
+    </a>
+    <div className="relative">
+      <img
+        className="h-10 w-10 rounded-full cursor-pointer"
+        src={doctorDetails.profile_photo || avatar}
+        alt="Profile"
+        onClick={() => setShowMenu(!showMenu)}
+      />
+      {showMenu && (
+        <div className="absolute right-0 mt-2 bg-white shadow-lg rounded-lg py-2">
+          <button className="block px-4 py-2 text-black hover:bg-gray-100" onClick={handleLogout}>
+            Logout
+          </button>
+        </div>
+      )}
+    </div>
+  </div>
+</nav>
+
+        <div>
+
+        </div>
+        <div className="flex flex-col items-center justify-center w-full mt-20 mx-10">
         <div className="flex flex-col items-center justify-center shadow-xl rounded-lg px-10 py-3">
           <div className="flex flex-col items-center justify-center w-full overflow-y-auto">
             <h2 className="text-2xl font-bold text-left">Patient Information</h2>
@@ -189,6 +240,8 @@ function Patient() {
           />
         </div>
       </div>
+      </div>
+      
     );
   }
 }
