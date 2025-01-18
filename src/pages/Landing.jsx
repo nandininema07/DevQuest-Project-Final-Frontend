@@ -9,6 +9,8 @@ import ContactUs from "./Policies_Terms_Contact/contact_us";
 import TextLoop from "react-text-loop";
 import { motion, useScroll, useTransform } from "framer-motion";
 import ParallaxCard from "../components/ParallaxCard"
+import Usp from "../components/Usp";
+import Card from "../components/Carousel";
 
 function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -74,7 +76,7 @@ function HomePage() {
                 key={index}
                 className="coloredText text-8xl mx-5 py-3"
                 style={{
-                  background: "linear-gradient(to right, #0099f7, #f11712)",
+                  background: "linear-gradient(to right, #4568DC, #B06AB3)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                 }}
@@ -116,6 +118,8 @@ function HomePage() {
       </div>
       <div style={{ top: "64px", zIndex: 10 }} // Adjust top based on navbar height
           className="sticky">
+      <Usp></Usp>
+      <Card></Card>
       <ParallaxCard></ParallaxCard>
       </div>
       

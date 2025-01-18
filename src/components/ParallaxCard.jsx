@@ -16,7 +16,7 @@ const ParallaxCard = () => {
         transition: { duration: 0.8, ease: "easeOut" },
       });
     } else {
-      controls1.start({ y: 200, scale: 0.8 });
+      controls1.start({ y: 150, scale: 0.8 });
     }
   }, [inView1, controls1]);
 
@@ -28,12 +28,12 @@ const ParallaxCard = () => {
         transition: { duration: 0.8, ease: "easeOut" },
       });
     } else {
-      controls2.start({ y: 200, scale: 0.8 });
+      controls2.start({ y: 300, scale: 0.8 });
     }
   }, [inView2, controls2]);
 
   return (
-    <div className="relative h-[150vh] text-black px-16 py-10">
+    <div className="h-[150vh] text-black px-16 py-10">
       <div className="text-left mb-10">
         <p className="text-6xl font-semibold">Smooth Scroll Parallax</p>
         <p className="text-xl">
@@ -46,7 +46,7 @@ const ParallaxCard = () => {
         <motion.div
           ref={ref1}
           animate={controls1}
-          initial={{ y: 125, scale: 0.8 }}
+          initial={{ y: 100, scale: 0.8 }}
           className="border-2 bg-[#f7dcb9] text-black p-10 rounded-xl absolute top-0 left-0 right-0 z-10 h-[50vh]"
         >
           <div className="flex items-center justify-evenly my-10">
