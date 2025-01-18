@@ -3,10 +3,11 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { FaEye, FaEyeSlash, FaTimes } from "react-icons/fa";
 import toast from 'react-hot-toast';
 import { backendurl } from '../../urls';
+import axios from "axios";
 
 function ResetPassword() {
   const navigate = useNavigate();
-  const { email } = useParams();
+  const { id, token } = useParams()
 
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -18,44 +19,14 @@ function ResetPassword() {
   const toggleNewPasswordVisibility = () => setShowNewPassword(!showNewPassword);
   const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfirmPassword);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setNewPasswordError('');
-    setConfirmPasswordError('');
-
-    if (newPassword.trim() === '') {
-      setNewPasswordError('New password is required');
-      return;
-    }
-    if (confirmPassword.trim() === '') {
-      setConfirmPasswordError('Confirm password is required');
-      return;
-    }
-    if (newPassword !== confirmPassword) {
-      setConfirmPasswordError('Passwords do not match');
-      return;
-    }
-
-    try {
-      let res = await fetch(`${backendurl}/reset_password/?email=${email}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ new_password: newPassword }),
-      });
-
-      let response = await res.json();
-
-      if (res.ok) {
-        toast.success('Password reset successful');
-        setTimeout(() => navigate("/login"), 2000);
-      } else {
-        toast.error(response.message);
-      }
-    } catch (err) {
-      toast.error(err.message);
-    }
+    axios.post(`http://localhost:3001/resetpass/${id}/${token}`, { newPassword })
+      .then(res => {
+        if (res.data.Status === "Success") {
+          navigate('/login')
+        }
+      }).catch(err => console.log(err))
   };
 
   return (

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { FaTimes } from "react-icons/fa";
 import toast from 'react-hot-toast';
 import { backendurl } from '../../urls';
+import axios from "axios";
 
 function ForgotPassword() {
   const navigate = useNavigate();
@@ -10,43 +11,53 @@ function ForgotPassword() {
   const [emailError, setEmailError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setEmailError('');
+  //   setIsLoading(true);
+  //   const toastID = toast.loading("Please wait...");
+
+  //   if (email.trim() === '') {
+  //     setEmailError('Email is required');
+  //     toast.dismiss(toastID);
+  //     setIsLoading(false);
+  //     return;
+  //   }
+
+  //   try {
+  //     let res = await fetch(`${backendurl}/forgot_password/`, {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({ email }),
+  //     });
+
+  //     let response = await res.json();
+
+  //     toast.dismiss(toastID);
+
+  //     if (res.ok) {
+  //       toast.success('Password reset link sent to your email');
+  //     } else {
+  //       toast.error(response.error);
+  //     }
+  //   } catch (err) {
+  //     toast.dismiss(toastID);
+  //     toast.error('An error occurred');
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setEmailError('');
-    setIsLoading(true);
-    const toastID = toast.loading("Please wait...");
-
-    if (email.trim() === '') {
-      setEmailError('Email is required');
-      toast.dismiss(toastID);
-      setIsLoading(false);
-      return;
-    }
-
-    try {
-      let res = await fetch(`${backendurl}/forgot_password/`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      let response = await res.json();
-
-      toast.dismiss(toastID);
-
-      if (res.ok) {
-        toast.success('Password reset link sent to your email');
-      } else {
-        toast.error(response.error);
-      }
-    } catch (err) {
-      toast.dismiss(toastID);
-      toast.error('An error occurred');
-    } finally {
-      setIsLoading(false);
-    }
+    axios.post('http://localhost:3001/forgotpass', { email })
+      .then(res => {
+        if (res.data.Status === "Success") {
+          navigate('/login')
+        }
+      }).catch(err => console.log(err))
   };
 
   return (

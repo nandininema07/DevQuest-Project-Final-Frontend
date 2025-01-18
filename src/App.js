@@ -43,7 +43,7 @@ function App() {
           <Route exact path="/login" element={<Login/>} />
           <Route exact path="/register" element={<Register/>} />
           <Route exact path="/forgot-password" element={<ForgotPassword/>} />
-          <Route exact path="/reset-password/:email" element={<ResetPassword/>} />
+          <Route exact path="/reset-password/:id/:token" element={<ResetPassword/>} />
           <Route exact path="/patient-profile/:patientId" element={<Layout_Navbar_only><Profile/></Layout_Navbar_only>} />
           <Route exact path="/take-test/:id" element={<Layout_Navbar_only> <GiveTest/> </Layout_Navbar_only>} />
           <Route exact path="/measurements/:id" element={<Layout_Navbar_only> <Measurements/> </Layout_Navbar_only>} />
