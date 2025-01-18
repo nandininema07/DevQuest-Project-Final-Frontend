@@ -72,12 +72,23 @@ function Patient() {
 
   // Add some mock patient data
   const mockData = [
-    { id: 1, profile_photo: avatar, fullname: "John Doe", mobile: "9876543210", gender: "Male", dob: "1990-05-15" },
-    { id: 2, profile_photo: avatar, fullname: "Jane Smith", mobile: "9123456789", gender: "Female", dob: "1995-02-25" },
-    { id: 3, profile_photo: avatar, fullname: "Mark Johnson", mobile: "9876123456", gender: "Male", dob: "1988-08-30" },
-    { id: 4, profile_photo: avatar, fullname: "Sarah Williams", mobile: "9087654321", gender: "Female", dob: "2000-12-12" },
-    { id: 5, profile_photo: avatar, fullname: "David Lee", mobile: "9001234567", gender: "Male", dob: "1992-03-18" }
-  ];
+    { "id": 1, "profile_photo": "avatar", "fullname": "John Doe", "mobile": "9876543210", "gender": "Male", "dob": "1990-05-15" },
+    { "id": 2, "profile_photo": "avatar", "fullname": "Jane Smith", "mobile": "9123456789", "gender": "Female", "dob": "1995-02-25" },
+    { "id": 3, "profile_photo": "avatar", "fullname": "Mark Johnson", "mobile": "9876123456", "gender": "Male", "dob": "1988-08-30" },
+    { "id": 4, "profile_photo": "avatar", "fullname": "Sarah Williams", "mobile": "9087654321", "gender": "Female", "dob": "2000-12-12" },
+    { "id": 5, "profile_photo": "avatar", "fullname": "David Lee", "mobile": "9001234567", "gender": "Male", "dob": "1992-03-18" },
+    { "id": 6, "profile_photo": "avatar", "fullname": "Emily Davis", "mobile": "9056784321", "gender": "Female", "dob": "1998-07-22" },
+    { "id": 7, "profile_photo": "avatar", "fullname": "Michael Brown", "mobile": "9109876543", "gender": "Male", "dob": "1985-01-10" },
+    { "id": 8, "profile_photo": "avatar", "fullname": "Olivia Martinez", "mobile": "9212345678", "gender": "Female", "dob": "1997-04-09" },
+    { "id": 9, "profile_photo": "avatar", "fullname": "William Taylor", "mobile": "9345678901", "gender": "Male", "dob": "1983-11-05" },
+    { "id": 10, "profile_photo": "avatar", "fullname": "Sophia Hernandez", "mobile": "9456789012", "gender": "Female", "dob": "2001-09-30" },
+    { "id": 11, "profile_photo": "avatar", "fullname": "James Anderson", "mobile": "9567890123", "gender": "Male", "dob": "1991-06-25" },
+    { "id": 12, "profile_photo": "avatar", "fullname": "Isabella White", "mobile": "9678901234", "gender": "Female", "dob": "1994-03-17" },
+    { "id": 13, "profile_photo": "avatar", "fullname": "Daniel Harris", "mobile": "9789012345", "gender": "Male", "dob": "1989-12-08" },
+    { "id": 14, "profile_photo": "avatar", "fullname": "Charlotte Lewis", "mobile": "9890123456", "gender": "Female", "dob": "1996-05-03" },
+    { "id": 15, "profile_photo": "avatar", "fullname": "Benjamin Walker", "mobile": "9901234567", "gender": "Male", "dob": "1993-08-14" }
+  ]
+  
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3;
