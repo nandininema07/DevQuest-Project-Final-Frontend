@@ -14,12 +14,14 @@ import Card from "../components/Carousel";
 import { useNavigate } from "react-router-dom";
 import Dashboard from "./Dashboard";
 
+
 function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const { scrollYProgress } = useScroll();
   const scale = useTransform(scrollYProgress, [0, 0.5], [0.75, 1.05]);
   const highlists = ["Remedy", "Solution", "Treatement", "Cure", "Guide"];
+  const Navigate  = useNavigate();
 
 
   useEffect(() => {
@@ -99,10 +101,10 @@ function HomePage() {
           </div>
           <div className="flex">
           <div className="flex">
-  <button className="rounded-full w-40 mr-4 bg-sec border text-xl text-black py-2 px-5 hover:bg-black hover:text-white border-1 border-black transition-all duration-500">
+  <button onClick={()=> Navigate("/contact_us")} className="rounded-full w-40 mr-4 bg-sec border text-xl text-black py-2 px-5 hover:bg-black hover:text-white border-1 border-black transition-all duration-500">
     Contact Us
   </button>
-  <button className="rounded-full w-40 border border-black text-xl text-white py-2 px-5 bg-black hover:bg-[#b5c18e] hover:text-black transition-all duration-500">
+  <button onClick={()=> Navigate("/register_user")} className="rounded-full w-40 border border-black text-xl text-white py-2 px-5 bg-black hover:bg-[#b5c18e] hover:text-black transition-all duration-500">
     Sign Up
   </button>
 </div>

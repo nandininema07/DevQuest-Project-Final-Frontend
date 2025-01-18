@@ -35,8 +35,8 @@ function ContactUs() {
         <nav className="fixed top-0 left-0 w-full py-4 transition-all duration-300 z-50 bg-black text-white">
           <div className="container mx-auto flex justify-between items-center px-6">
             <Link to="/" className="flex items-center">
-              <img src={logo} alt="Logo" className="w-12 h-12 mr-3" />
-              <span className="text-xl font-istok-web font-bold">ANTHROPOSYNC</span>
+              <img src={logo} alt="Logo" className="w-10 h-10 mr-3" />
+              <span className="text-3xl font-ananda_namaste">Arogyam</span>
             </Link>
             <div className="flex space-x-4">
               <Link
@@ -120,9 +120,9 @@ function ContactUs() {
             <div className="p-6 bg-white shadow-lg rounded-md">
               <h2 className="text-2xl font-semibold mb-4">Our Contact Information</h2>
               <div className="text-gray-800 space-y-2">
-                <p><strong>Email:</strong> info@anthroposync.com</p>
+                <p><strong>Email:</strong> info@Arogyam.com</p>
                 <p><strong>Phone:</strong> +123 456 7890</p>
-                <p><strong>Address:</strong> Anthroposync, 123 Health Street, Wellness City, WC1234</p>
+                <p><strong>Address:</strong> Arogyam, 123 Health Street, Wellness City, WC1234</p>
               </div>
             </div>
           </div>
@@ -145,9 +145,9 @@ function ContactUs() {
                                 <img
                                 src={require('../../images/LOGO_FINAL.png')}
                                 alt="Logo"
-                                className="w-12 h-12 mr-3"
+                                className="w-10 h-10 mr-3"
                                 />
-                                <span className="text-2xl font-istok-web font-bold">ANTHROPOSYNC</span>
+                                <span className="text-3xl font-ananda_namaste">Arogyam</span>
                                 </Link>
                         
                                 {/* Social Media Icons */}
@@ -243,7 +243,7 @@ function ContactUs() {
                             {/* Footer Bottom */}
                             <div className="mt-4 border-t border-gray-700 pt-6 text-center text-sm text-gray-400 ml-4">
                               <div>
-                                © 2025 Anthroposync. All rights reserved.
+                                © 2025 Arogyam. All rights reserved.
                               </div>
                             </div>
                           </div>
