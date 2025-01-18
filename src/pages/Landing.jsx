@@ -116,6 +116,8 @@ function HomePage() {
           />
         </motion.div>
       </div>
+      <div style={{ top: "64px", zIndex: 10 }} // Adjust top based on navbar height
+          className="sticky">
       <ParallaxCard></ParallaxCard>
       <Page></Page>
       <Usp></Usp>
