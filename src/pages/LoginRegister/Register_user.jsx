@@ -58,7 +58,7 @@ function RegisterUser() {
 
         if (res.ok) {
           toast.success('Registered Successfully');
-          setTimeout(() => navigate('/login'), 2000);
+          setTimeout(() => navigate('/login_user'), 2000);
         } else {
           toast.error(response.message);
         }
@@ -80,8 +80,8 @@ function RegisterUser() {
         <div className="w-1/2 flex flex-col justify-center items-center bg-gray-100">
           <img src={require('../../images/registerpage_abovequote.png')} alt="Register" className="w-3/4" />
           <div className="text-center mt-6">
-            <p className="ml-5 mr-5 text-2xl font-serif">"Every measurement brings us closer to personalized perfection."</p>
-            <p className="text-lg font-serif mt-2 ml-10">— Dr. Alan Hughes, Anthropometric Specialist</p>
+            <p className="ml-5 mr-5 text-2xl font-serif">"Ayurveda is not just the science of healing; it is the science of life."</p>
+            <p className="text-lg font-serif mt-2 ml-10">— Dr. Vasant Lad, Ayurvedic Physician</p>
           </div>
         </div>
         <div className="w-1/2 flex flex-col justify-center items-center font-istok relative">

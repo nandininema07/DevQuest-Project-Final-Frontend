@@ -147,6 +147,24 @@ function Patient() {
   };
 
   useEffect(() => {
+    const verifyToken = async () => {
+      try {
+        const result = await axios.get(`${backendurl}/patient`, {
+          headers: {
+            Authorization: `Bearer ${tokenJson?.token?.access}`,
+          },
+          withCredentials: true,
+        });
+  
+        if (result.data !== "Success") {
+          navigate('/login');
+        }
+      } catch (err) {
+        console.error("Token verification failed:", err);
+        navigate('/login');
+      }
+    };
+
     const fetchDoctorDetails = async () => {
             try {
               if (!tokenJson?.token?.access) {
