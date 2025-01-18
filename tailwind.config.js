@@ -13,7 +13,8 @@ module.exports = {
         'nav2bg':'#F1C79E',
         'fieldborder':'#ADAAAA',
         'fieldbg':'#F9F9F9',
-        'filebg':'#EBD6C1'
+        'filebg':'#EBD6C1',
+        'prim':'#b5c18e',
       },
       fontFamily: {
         'montserrat': ['Montserrat'],
