@@ -37,7 +37,7 @@ import FileUpload from './pages/FileUpload';
 //import Layout_Navbar_only_expert from './components/Navbar_expert';
 import Patient from './pages/Patient';
 import DoctorProfile from './pages/Profile/Doctor_Profile';
-import MsrmtTable from './components/MsrmtTable'
+
 
 
 
