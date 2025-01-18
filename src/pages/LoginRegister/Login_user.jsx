@@ -74,7 +74,7 @@ function LoginUser() {
               <span className="text-[#B5C18E]">Welcome</span> Back!
             </h2>
             <div className='mb-3'>
-              <button onClick={() => navigate('/login_user')} className='border rounded-lg py-2 px-4 mr-5 bg-[#B5C18E]'>Register as a User</button>
+              <button onClick={() => navigate('/login_user')} className='border rounded-lg py-2 px-4 mr-5 bg-[#B5C18E]'>Login as a User</button>
               <button onClick={() => navigate('/login_expert')} className='border rounded-lg py-2 px-4 border-[#B5C18E] text-[#B5C18E]'>Login as an Expert</button>
             </div>
             <form onSubmit={handleSubmit} className="flex flex-col space-y-4">

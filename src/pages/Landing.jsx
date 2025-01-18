@@ -116,11 +116,15 @@ function HomePage() {
           />
         </motion.div>
       </div>
+      <Usp></Usp>
+      
+      <ParallaxCard></ParallaxCard>
+      <div className='-mt-60'>
+      <Card></Card>
+        </div>
       <div style={{ top: "64px", zIndex: 10 }} // Adjust top based on navbar height
           className="sticky">
-      <Usp></Usp>
-      <Card></Card>
-      <ParallaxCard></ParallaxCard>
+      
       </div>
       
       {/* Footer */}
