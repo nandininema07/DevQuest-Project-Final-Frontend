@@ -23,7 +23,7 @@ function Navbar_Expert() {
         const response = await fetch(`${backendurl}/profile/`, {
           method: 'GET',
           headers: {
-            Authorization: `Bearer ${tokenJson?.token?.access}`,
+            // Authorization: `Bearer ${tokenJson?.token?.access}`,
           },
         });
 
@@ -45,7 +45,7 @@ function Navbar_Expert() {
   const handleLogout = () => {
     localStorage.clear();
     sessionStorage.removeItem('AnthropometricToken');
-    navigate('/login_user');
+    navigate('/login_expert');
   };
 
   return (

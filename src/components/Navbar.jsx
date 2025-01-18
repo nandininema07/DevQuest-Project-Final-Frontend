@@ -20,7 +20,7 @@ function Navbar() {
 
   axios.defaults.withCredentials = true
       useEffect(() => {
-          axios.get('http://localhost:3001/home')
+          axios.get('http://localhost:3001/navbar')
               .then(result => {
                   console.log(result)
                   if (result.data !== "Success") {
@@ -65,7 +65,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="fixed flex w-full bg-[#0051AB] shadow-md p-2 items-center justify-between h-16 z-10">
+    <nav className="fixed flex w-full bg-[#97a36d] shadow-md p-2 items-center justify-between h-16 z-10">
       {/* Logo and Title */}
       <div className="flex items-center">
         <img src={logo} className="h-10 w-10" alt="Logo" />

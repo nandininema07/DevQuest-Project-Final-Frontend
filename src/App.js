@@ -63,13 +63,13 @@ function App() {
             <Route exact path="/reset-password-user/:email" element={<ResetPasswordUser />} />
             <Route exact path="/reset-password-expert/:email" element={<ResetPasswordExpert />} />
             
-            {/* <Route exact path="/patient" element={<Layout_Navbar_only><Patient /></Layout_Navbar_only>} /> */}
-            <Route exact path="/patient" element={<Layout_Navbar_only_expert><Patient /></Layout_Navbar_only_expert>} />
+            <Route exact path="/patient" element={<Layout_Navbar_only><Patient /></Layout_Navbar_only>} />
+            {/* <Route exact path="/patient" element={<Layout_Navbar_only_expert><Patient /></Layout_Navbar_only_expert>} /> */}
             <Route exact path="/doctor-profile" element={<Layout_Navbar_only_expert><DoctorProfile /></Layout_Navbar_only_expert>} />
             <Route exact path="/measurements_expert/:id" element={<Layout_Navbar_only_expert><Measurements /></Layout_Navbar_only_expert>} />
 
             
-            <Route exact path="/patient-profile/:patientId" element={<Layout_Navbar_only><Profile /></Layout_Navbar_only>} />
+            <Route exact path="/patient-profile" element={<Layout_Navbar_only><Profile /></Layout_Navbar_only>} />
             <Route exact path="/dashboard" element={<Layout_Navbar_only><Dashboard /></Layout_Navbar_only>} />            
             <Route exact path="/take-test/:id" element={<Layout_Navbar_only><GiveTest /></Layout_Navbar_only>} />
             <Route exact path="/measurements_user/:id" element={<Layout_Navbar_only><Measurements /></Layout_Navbar_only>} />
