@@ -11,6 +11,7 @@ import Pagination from "../components/Pagination";
 //import { getAuthToken } from "..";
 import BackButton from "../components/Backbutton";
 import axios from 'axios'
+import DoctorProfile from "./Profile/DoctorProfile";
 
 function Patient() {
   const navigate = useNavigate();
@@ -236,9 +237,6 @@ function Patient() {
   } else {
     return (     
       <div className="flex flex-col items-center justify-center w-full mt-20 mx-10">
-        <div className="w-full text-left ml-10 mb-2">
-          <h2 className="text-2xl font-bold">Welcome, Dr. {doctorDetails?.fullname}!</h2>
-        </div>
         <div className="flex flex-col items-center justify-center shadow-xl rounded-lg px-10 py-3 ">
         <div className="flex flex-col items-center justify-center w-full overflow-y-auto">
           <div className="">
@@ -428,7 +426,7 @@ function Patient() {
           <td className="py-4 px-6 sm:py-2 sm:px-2">{patient?.gender}</td>
           <td className="py-4 px-6 sm:py-2 sm:px-2">{patient?.dob}</td>
           <td className="py-4 px-6 sm:py-2 sm:px-2 hover:underline cursor-pointer">
-            <Link to={`/patient-profile/${patient?.id}`}>View Details</Link>
+            <Link to={`/doctor-profile/${patient?.id}`}>View Details</Link>
           </td>
         </tr>
       ))}

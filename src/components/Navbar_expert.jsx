@@ -6,7 +6,7 @@ import { backendurl } from '../urls';
 import avatar from '../images/profile-removebg-preview 1.png';
 import { getAuthToken } from '..';
 
-function Navbar() {
+function Navbar_Expert() {
   const navigate = useNavigate();
   const location = useLocation();
   const [showMenu, setShowMenu] = useState(false);
@@ -58,10 +58,10 @@ function Navbar() {
 
       {/* Right Side */}
       <div className="flex items-center gap-6">
-        <Link className={`px-4 py-2 font-medium text-white rounded-lg hover:opacity-80 ${isPatientRoute ? 'bg-black' : ''}`} to="/dashboard">
-          Dashboard
+        <Link className={`px-4 py-2 font-medium text-white rounded-lg hover:opacity-80 ${isPatientRoute ? 'bg-black' : ''}`} to="/patient">
+          Patient Information
         </Link>
-        <Link className={`px-4 py-2 font-medium text-white rounded-lg hover:opacity-80 ${isDoctorRoute ? 'bg-black' : ''}`} to="/patient-profile">
+        <Link className={`px-4 py-2 font-medium text-white rounded-lg hover:opacity-80 ${isDoctorRoute ? 'bg-black' : ''}`} to="/doctor-profile">
           My Profile
         </Link>
         <div className="relative">
@@ -84,4 +84,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default Navbar_Expert;
