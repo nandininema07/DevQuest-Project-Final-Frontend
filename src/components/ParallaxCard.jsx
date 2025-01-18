@@ -46,7 +46,7 @@ const ParallaxCard = () => {
         <motion.div
           ref={ref1}
           animate={controls1}
-          initial={{ y: 125, scale: 0.8 }}
+          initial={{ y: 150, scale: 0.8 }}
           className="border-2 bg-[#f7dcb9] text-black p-10 rounded-xl absolute top-0 left-0 right-0 z-10 h-[50vh]"
         >
           <div className="flex items-center justify-evenly my-10">
