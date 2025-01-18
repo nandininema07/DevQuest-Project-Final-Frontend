@@ -61,6 +61,7 @@ function Navbar() {
   const handleLogout = () => {
     localStorage.clear();
     sessionStorage.removeItem('AnthropometricToken');
+    axios.post('http://localhost:3001/logout')
     navigate('/login_user');
   };
 
