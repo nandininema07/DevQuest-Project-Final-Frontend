@@ -35,8 +35,8 @@ const Card = ({ deviceType }) => {
         autoPlay={deviceType !== "mobile"}
         autoPlaySpeed={1000}
         keyBoardControl={true}
-        customTransition="all .5"
-        transitionDuration={500}
+        customTransition="ease-in"
+        transitionDuration={700}
         containerClass="carousel-container"
         removeArrowOnDeviceType={["tablet", "mobile"]}
         deviceType={deviceType}
