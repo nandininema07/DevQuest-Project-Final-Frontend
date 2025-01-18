@@ -75,7 +75,7 @@ function Dashboard() {
       {
         label: "Diagnosis Frequency",
         data: [10, 12, 13, 14, 8, 9],
-        fill: false,
+        fill: true,
         borderColor: "#42A5F5",
         tension: 0.1,
       },
