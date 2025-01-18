@@ -9,7 +9,7 @@ import avatar from "../images/profile-removebg-preview 1.png";
 import PatientContext from "../context/PatientContext";
 import Pagination from "../components/Pagination";
 import axios from 'axios'
-import DoctorProfile from "./Profile/DoctorProfile";
+import DoctorProfile from "./Profile/Doctor_Profile";
 import logo from "../images/LOGO_FINAL.png"
 
 function Patient() {
